@@ -1,0 +1,23 @@
+---
+import Navbar from '../navbar.astro';
+import Footer from '../footer.astro';
+
+const { title = "LasperKaine — Developer Portfolio" } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Junior Frontend & Full-Stack Developer Portfolio" />
+    <link rel="stylesheet" href="/main.css" />
+  </head>
+  <body>
+    <Navbar />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

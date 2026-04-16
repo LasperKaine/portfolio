@@ -1,17 +1,54 @@
 ---
-
+import BaseLayout from './layouts/BaseLayout.astro'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="LasperKaine — Junior Developer">
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="glitch" data-text="LASPER KAINE">Kasper Laine</h1>
+      <h2 class="hero-subtitle">Frontend / Full‑Stack Junior Developer</h2>
+      <p class="hero-desc">
+        I build fast, clean web applications. Experienced with React, Node.js, and modern tooling.
+        <br />Ready to ship real features and learn from great teams.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="/projects" class="button-purple">View Projects</a>
+        <a href="/resume.pdf" target="_blank" rel="noopener" class="button-ghost">Download Resume</a>
+        <a href="https://linkedin.com/in/LasperKaine" target="_blank" rel="noopener" class="button-ghost">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="quick-facts">
+    <div class="facts-container">
+      <h2 class="section-title">Quick Facts</h2>
+      <div class="facts-grid">
+        <div class="fact">
+          <p class="fact-number">4+</p>
+          <p class="fact-label">Projects Shipped</p>
+        </div>
+        <div class="fact">
+          <p class="fact-number">1</p>
+          <p class="fact-label">Internship (Vue, React)</p>
+        </div>
+        <div class="fact">
+          <p class="fact-number">3+</p>
+          <p class="fact-label">Languages / Frameworks</p>
+        </div>
+        <div class="fact">
+          <p class="fact-number">✓</p>
+          <p class="fact-label">Git / PRs / Code Reviews</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-box">
+      <h2>Ready to chat?</h2>
+      <p>I'm open to opportunities, collaborations, or just a conversation.</p>
+      <a href="/contact" class="button-purple">Get in Touch</a>
+    </div>
+  </section>
+</BaseLayout>

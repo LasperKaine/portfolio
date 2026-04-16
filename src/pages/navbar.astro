@@ -1,0 +1,30 @@
+---
+const currentPath = Astro.url.pathname;
+
+const isActive = (path: string) => currentPath === path || currentPath.startsWith(path + '/');
+---
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="/" class="nav-logo">
+      <span class="logo-text">KL</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/" class={isActive('/') ? 'active' : ''}>Home</a></li>
+      <li><a href="/projects" class={isActive('/projects') ? 'active' : ''}>Projects</a></li>
+      <li><a href="/about" class={isActive('/about') ? 'active' : ''}>About</a></li>
+      <li><a href="/contact" class={isActive('/contact') ? 'active' : ''}>Contact</a></li>
+    </ul>
+    <div class="nav-socials">
+      <a href="https://github.com/LasperKaine" target="_blank" rel="noopener" title="GitHub">
+        GitHub
+      </a>
+      <a href="https://linkedin.com/in/LasperKaine" target="_blank" rel="noopener" title="LinkedIn">
+        LinkedIn
+      </a>
+      <a href="/resume.pdf" target="_blank" rel="noopener" class="resume-link">
+        Resume
+      </a>
+    </div>
+  </div>
+</nav>

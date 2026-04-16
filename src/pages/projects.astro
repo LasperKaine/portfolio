@@ -1,0 +1,145 @@
+---
+import BaseLayout from './layouts/BaseLayout.astro'
+
+const personalProjects = [
+  {
+    name: "Cool Pastebin Clone",
+    desc: "Fullstack pastebin-style app with auth, uploads, and a dashboard.",
+    url: "https://github.com/LasperKaine/cool-pastebin",
+    live: "", // add later if you have it
+    tech: ["React", "Node", "MongoDB"],
+    highlights: [
+      "JWT auth + protected routes",
+      "CRUD for pastes + syntax highlighting",
+      "Responsive dashboard UI",
+    ],
+  },
+  {
+    name: "Game of Life",
+    desc: "Conway’s Game of Life visualizer using Canvas with controls & presets.",
+    url: "https://github.com/LasperKaine/game-of-life",
+    live: "",
+    tech: ["JavaScript", "Canvas"],
+    highlights: ["Canvas rendering", "Performance optimization", "UI controls"],
+  },
+]
+
+const workProjects = [
+  {
+    name: "Inventory Dashboard",
+    company: "Internship Project",
+    desc: "Built internal dashboard UI and integrated API data for operations reporting.",
+    img: "/images/internship-dashboard.png", // screenshot extracted from your PDF
+    tech: ["Vue", "REST API", "Agile/Scrum"],
+    highlights: [
+      "Reusable UI components",
+      "API integration + loading/error states",
+      "Improved data visibility for team",
+    ],
+    note: "Source code not available due to company policy/NDA.",
+  },
+  {
+    name: "Invoice Tracker",
+    company: "Internship Project",
+    desc: "Implemented UI flows for invoice creation, listing, and status tracking.",
+    img: "/images/invoice-screenshot.jpg",
+    tech: ["Angular", "Firebase"],
+    highlights: [
+      "Form validation + UX improvements",
+      "Worked with QA feedback loop",
+      "Wrote clear technical docs for handoff",
+    ],
+    note: "Screenshots shown with permission/redactions. Code is confidential.",
+  },
+]
+---
+
+<BaseLayout title="Projects">
+  <section class="centerwrap">
+    <header class="projects-header">
+      <h1 class="glitch">PROJECTS</h1>
+      <p class="subtitle">
+        Personal projects you can review + professional work (confidential) you can discuss with me in interviews.
+      </p>
+    </header>
+
+    <!-- PERSONAL / PUBLIC PROJECTS -->
+    <section class="section">
+      <h2 class="section-title">PERSONAL PROJECTS</h2>
+      <div class="project-list">
+        {personalProjects.map((p) => (
+          <article class="card">
+            <h3 class="card-title">{p.name}</h3>
+            <p class="card-desc">{p.desc}</p>
+
+            <p class="meta">
+              <span class="meta-label">Tech:</span> {p.tech.join(" • ")}
+            </p>
+
+            {p.highlights?.length ? (
+              <ul class="bullets">
+                {p.highlights.map((h) => <li>{h}</li>)}
+              </ul>
+            ) : null}
+
+            <div class="actions">
+              <a class="button-purple" href={p.url} target="_blank" rel="noopener">
+                View Code
+              </a>
+              {p.live ? (
+                <a class="button-ghost" href={p.live} target="_blank" rel="noopener">
+                  Live Demo
+                </a>
+              ) : null}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- WORK / CONFIDENTIAL PROJECTS -->
+    <section class="section">
+      <h2 class="section-title">
+        PROFESSIONAL WORK <span class="section-tag">Confidential</span>
+      </h2>
+      <p class="section-subtitle">
+        Visuals + responsibilities shown. Source code is not public due to NDA/company policy—happy to walk through my work in an interview.
+      </p>
+
+      <div class="project-list">
+        {workProjects.map((p) => (
+          <article class="card confidential">
+            <h3 class="card-title">
+              {p.name} <span class="badge"></span>
+            </h3>
+            <p class="card-desc">{p.desc}</p>
+
+            {p.img ? (
+              <img class="work-image" src={p.img} alt={`${p.name} screenshot`} loading="lazy" />
+            ) : null}
+
+            <p class="meta">
+              <span class="meta-label">Context:</span> {p.company}
+              <br />
+              <span class="meta-label">Tech:</span> {p.tech.join(" • ")}
+            </p>
+
+            {p.highlights?.length ? (
+              <ul class="bullets">
+                {p.highlights.map((h) => <li>{h}</li>)}
+              </ul>
+            ) : null}
+
+            <p class="confidential-note">{p.note}</p>
+
+            <div class="actions">
+              <a class="button-ghost" href="/contact">
+                Contact to discuss
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </section>
+</BaseLayout>
