@@ -2,30 +2,38 @@
 import BaseLayout from "./layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="LasperKaine — Junior Developer">
+<BaseLayout title="Kasper Laine — Web Developer">
   <section class="hero">
     <div class="hero-content">
-      <h1 class="glitch" data-text="LASPER KAINE">Kasper Laine</h1>
-      <h2 class="hero-subtitle">Full‑Stack Junior Developer</h2>
+      <h1 class="glitch">Kasper Laine</h1>
+      <h2 class="hero-subtitle">Web / Software Developer</h2>
       <p class="hero-desc">
-        I build fast, clean web applications. Experienced with React, Node.js,
-        and modern tooling. Currently studying at Metropolia.
-        <br />Open to junior developer opportunities.
+        Helsinki-based web and software developer with hands-on experience in IT
+        support, digital solutions, and collaborative projects. Currently
+        studying Software Production at Metropolia University of Applied
+        Sciences, focusing on practical software engineering and modern web
+        technologies.<br />
+        I'm always learning and looking for ways to build better solutions.
       </p>
-
       <div class="hero-ctas">
         <a href="/projects" class="button-purple">View Projects</a>
         <a
           href="/resume.pdf"
           target="_blank"
           rel="noopener"
-          class="button-ghost">Download Resume</a
+          class="button-ghost">Resume</a
         >
         <a
-          href="https://www.linkedin.com/in/kasper-laine-a4a131231/"
+          href="https://linkedin.com/in/kasper-laine-4a131231"
           target="_blank"
           rel="noopener"
           class="button-ghost">LinkedIn</a
+        >
+        <a
+          href="https://github.com/LasperKaine"
+          target="_blank"
+          rel="noopener"
+          class="button-ghost">GitHub</a
         >
       </div>
     </div>
@@ -36,20 +44,67 @@ import BaseLayout from "./layouts/BaseLayout.astro";
       <h2 class="section-title">Quick Facts</h2>
       <div class="facts-grid">
         <div class="fact">
-          <p class="fact-number">2</p>
-          <p class="fact-label">Years in Web Dev</p>
+          <svg
+            class="fact-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="2" y1="17" x2="22" y2="17"></line>
+            <line x1="6" y1="21" x2="18" y2="21"></line>
+          </svg>
+          <span class="fact-main">Web Developer</span>
+          <span class="fact-sub">Helsinki, Finland</span>
         </div>
         <div class="fact">
-          <p class="fact-number">5+</p>
-          <p class="fact-label">Languages & Frameworks</p>
+          <svg
+            class="fact-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path
+              d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+            ></path>
+          </svg>
+          <span class="fact-main">BEng Student</span>
+          <span class="fact-sub">Software Production, Metropolia</span>
         </div>
         <div class="fact">
-          <p class="fact-number">React</p>
-          <p class="fact-label">Node.js / Express</p>
+          <svg
+            class="fact-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 1 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+            ></path>
+          </svg>
+          <span class="fact-main">IT & Web</span>
+          <span class="fact-sub">Background</span>
         </div>
         <div class="fact">
-          <p class="fact-number">✓</p>
-          <p class="fact-label">Currently @ Metropolia</p>
+          <svg
+            class="fact-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path
+              d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+            ></path>
+          </svg>
+          <span class="fact-main">English / Finnish</span>
+          <span class="fact-sub">Languages</span>
         </div>
       </div>
     </div>
@@ -57,9 +112,12 @@ import BaseLayout from "./layouts/BaseLayout.astro";
 
   <section class="cta-section">
     <div class="cta-box">
-      <h2>Ready to chat?</h2>
-      <p>I'm open to opportunities, collaborations, or just a conversation.</p>
-      <a href="/contact" class="button-purple">Get in Touch</a>
+      <h2>Let's work together</h2>
+      <p>
+        I'm looking for junior developer opportunities. Feel free to reach out
+        for collaboration or questions!
+      </p>
+      <a href="/contact" class="button-purple">Contact Me</a>
     </div>
   </section>
 </BaseLayout>

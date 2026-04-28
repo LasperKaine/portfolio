@@ -1,80 +1,240 @@
 ---
 import BaseLayout from './layouts/BaseLayout.astro'
 
-const personalProjects = [
+const workProjects = [
   {
-    name: "Cool Pastebin Clone",
-    desc: "Fullstack pastebin-style app with auth, uploads, and a dashboard.",
-    url: "https://github.com/LasperKaine/cool-pastebin",
-    live: "", // add later if you have it
-    tech: ["React", "Node", "MongoDB"],
+    name: "UI Campaign Patterns",
+    company: "Alfons Digital (8.1.2024 - 22.5.2024)",
+    desc: "Built reusable WordPress patterns for creating dynamic case showcase pages. Designed flexible components to streamline client project setups.",
+    image: "/images/projects/ui-campaign-patterns.jpg",
+    tech: ["WordPress", "React", "CSS", "Tailwind"],
     highlights: [
-      "JWT auth + protected routes",
-      "CRUD for pastes + syntax highlighting",
-      "Responsive dashboard UI",
+      "Custom Gutenberg React block components",
+      "Reusable pattern library for multiple clients",
+      "Responsive design across all breakpoints",
+      "Accessibility testing (WCAG compliance)",
     ],
   },
   {
-    name: "Game of Life",
-    desc: "Conway’s Game of Life visualizer using Canvas with controls & presets.",
-    url: "https://github.com/LasperKaine/game-of-life",
-    live: "",
-    tech: ["JavaScript", "Canvas"],
-    highlights: ["Canvas rendering", "Performance optimization", "UI controls"],
+    name: "HSKK Marketing Site",
+    company: "Alfons Digital",
+    desc: "Marketing website for Helsingin seudun kauppakamari showcasing their various services with custom layouts and optimized UX.",
+    image: "/images/projects/hskk-marketing.jpg",
+    tech: ["WordPress", "PHP", "Tailwind", "CSS"],
+    highlights: [
+      "Custom post types for services",
+      "Mobile-responsive design",
+      "Performance optimization",
+      "Saavutettavuus (accessibility) testing",
+    ],
+  },
+  {
+    name: "Future School",
+    company: "Alfons Digital",
+    desc: "Story-based survey website for Lasten ja nuortensäätiö. Interactive React components guide users through narratives with form collection.",
+    image: "/images/projects/future-school.jpg",
+    tech: ["React", "WordPress", "Node.js"],
+    highlights: [
+      "Interactive story-based UI flow",
+      "Dynamic form handling",
+      "Custom data collection",
+      "Accessibility compliance verified",
+    ],
+  },
+  {
+    name: "Impact Library & Network",
+    company: "Alfons Digital",
+    desc: "Dual-component project featuring a workshop directory (Impact Library) and an interactive map (Impact Network) using custom post types.",
+    image: "/images/projects/impact-library-network.jpg",
+    tech: ["React", "WordPress", "PHP", "JavaScript"],
+    highlights: [
+      "Custom post type taxonomy system",
+      "Interactive map with markers",
+      "Category filtering for workshops",
+      "Full accessibility testing suite",
+    ],
   },
 ]
 
-const workProjects = [
+const personalProjects = [
   {
-    name: "Inventory Dashboard",
-    company: "Internship Project",
-    desc: "Built internal dashboard UI and integrated API data for operations reporting.",
-    img: "/images/internship-dashboard.png", // screenshot extracted from your PDF
-    tech: ["Vue", "REST API", "Agile/Scrum"],
+    name: "Portfolio",
+    desc: "Personal portfolio website built with Astro showcasing projects, experience, and skills. Modern, performant, and fully responsive.",
+    url: "https://github.com/LasperKaine/portfolio",
+    tech: ["Astro", "CSS", "JavaScript"],
     highlights: [
-      "Reusable UI components",
-      "API integration + loading/error states",
-      "Improved data visibility for team",
+      "Static site generation with Astro",
+      "Fast performance & SEO optimized",
+      "Responsive design",
+      "Dark theme with smooth transitions",
     ],
-    note: "Source code not available due to company policy/NDA.",
   },
   {
-    name: "Invoice Tracker",
-    company: "Internship Project",
-    desc: "Implemented UI flows for invoice creation, listing, and status tracking.",
-    img: "/images/invoice-screenshot.jpg",
-    tech: ["Angular", "Firebase"],
+    name: "Resume Builder",
+    desc: "A resume/CV builder application that allows users to create and customize their own resumes using a JSON-based format.",
+    url: "https://github.com/LasperKaine/resume-builder",
+    tech: ["TypeScript", "React", "Vite"],
     highlights: [
-      "Form validation + UX improvements",
-      "Worked with QA feedback loop",
-      "Wrote clear technical docs for handoff",
+      "JSON-based resume data format",
+      "Customizable templates",
+      "Export to PDF",
+      "Responsive design",
     ],
-    note: "Screenshots shown with permission/redactions. Code is confidential.",
   },
+  {
+    name: "Web Sovellus",
+    desc: "A web application project showcasing modern JavaScript practices and interactive UI components.",
+    url: "https://github.com/LasperKaine/web-sovellus",
+    tech: ["JavaScript", "CSS", "HTML"],
+    highlights: [
+      "Interactive components",
+      "Modern JavaScript ES6+",
+      "CSS animations",
+    ],
+  },
+]
+
+const groupProjects = [
+  {
+    name: "City Sushi",
+    desc: "A restaurant website for City Sushi featuring menu, location, and ordering information.",
+    url: "https://github.com/LasperKaine/citysushi",
+    tech: ["HTML", "CSS", "JavaScript"],
+    highlights: [
+      "Interactive menu display",
+      "Responsive layout",
+      "Smooth animations",
+    ],
+  },
+  {
+    name: "University Admission Queue Simulation",
+    desc: "University admission queue system simulation project. Demonstrates queue data structures and algorithms for processing student admissions.",
+    url: "https://github.com/LasperKaine/University-Admission-Queue-System-Simulation",
+    tech: ["Java", "HTML", "CSS", "JavaScript"],
+    highlights: [
+      "Queue data structure implementation",
+      "Student admission simulation",
+      "Visual queue representation",
+    ],
+  },
+  {
+    name: "Freightfall",
+    desc: "A collaborative group project creating an interactive game/application.",
+    url: "https://github.com/Hexdoktor/Freightfall_ryhm-projekti",
+    tech: ["Python", "HTML", "JavaScript", "CSS"],
+    highlights: [
+      "Team collaboration using Git",
+      "Cross-language integration",
+      "Interactive gameplay mechanics",
+    ],
+  },
+]
+
+const additionalClients = [
+  "Helsingin seudun kauppakamari",
+  "Turun seudun kauppakamari",
+  "Kauppakamari – KoulutusOnline",
+  "Kauppakamari - TyösuhdePRO",
+  "Kauppakamari – KauppakamariTieto",
+  "Kirjailijalehti",
+  "Kirjailijaliitto",
+  "forumvirium",
+  "kiipeilyareena",
+  "h2clusters",
+  "lukuliike",
+  "nordic label",
+  "vasemmistoliiton sivusto",
+  "Alfons Education & Alfons Digital websites",
 ]
 ---
 
 <BaseLayout title="Projects">
-  <section class="centerwrap">
+  <section class="projects-wrapper">
     <header class="projects-header">
       <h1 class="glitch">PROJECTS</h1>
       <p class="subtitle">
-        Personal projects you can review + professional work (confidential) you can discuss with me in interviews.
+        Professional work from my internship at Alfons Digital, plus personal and group projects on GitHub.
       </p>
     </header>
 
-    <!-- PERSONAL / PUBLIC PROJECTS -->
-    <section class="section">
+    <!-- NAVIGATION MENU -->
+    <nav class="projects-nav">
+      <a href="#professional" class="nav-link active">Professional Work</a>
+      <a href="#personal" class="nav-link">Personal</a>
+      <a href="#group" class="nav-link">Group</a>
+    </nav>
+
+    <!-- PROFESSIONAL WORK (FEATURED) -->
+    <section class="projects-section featured-section" id="professional">
+      <h2 class="section-title">PROFESSIONAL WORK</h2>
+      <p class="section-subtitle">
+        Projects from my fullstack developer internship at Alfons Digital (January – May 2024). Built WordPress sites with React components, custom post types, and modern frontend technologies. Implemented automated accessibility testing across all projects to ensure WCAG compliance.
+      </p>
+
+      <div class="project-grid large-cards">
+        {workProjects.map((p) => (
+          <article class="large-card">
+            {p.image && (
+              <div class="project-image">
+                <img src={p.image} alt={p.name} loading="lazy" />
+              </div>
+            )}
+            
+            <div class="project-content">
+              <h3 class="card-title">{p.name}</h3>
+              <p class="card-desc">{p.desc}</p>
+
+              <p class="meta">
+                <span class="meta-label">Context:</span> {p.company}
+              </p>
+
+              <div class="tech-tags">
+                {p.tech.map((t) => (
+                  <span class="tech-tag">{t}</span>
+                ))}
+              </div>
+
+              {p.highlights?.length ? (
+                <ul class="bullets">
+                  {p.highlights.map((h) => <li>{h}</li>)}
+                </ul>
+              ) : null}
+
+              <a class="button-ghost" href="/contact">
+                Contact to discuss
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- ADDITIONAL CLIENTS -->
+      <div class="additional-clients">
+        <h3>Additional Client Work</h3>
+        <p>Continued development and maintenance on 12+ client projects:</p>
+        <ul class="client-list">
+          {additionalClients.map((client) => (
+            <li>{client}</li>
+          ))}
+        </ul>
+        <p class="note">All projects included automated saavutettavuus (accessibility) testing to ensure WCAG compliance.</p>
+      </div>
+    </section>
+
+    <!-- PERSONAL PROJECTS -->
+    <section class="projects-section" id="personal">
       <h2 class="section-title">PERSONAL PROJECTS</h2>
-      <div class="project-list">
+      <div class="project-grid small-cards">
         {personalProjects.map((p) => (
-          <article class="card">
+          <article class="small-card">
             <h3 class="card-title">{p.name}</h3>
             <p class="card-desc">{p.desc}</p>
 
-            <p class="meta">
-              <span class="meta-label">Tech:</span> {p.tech.join(" • ")}
-            </p>
+            <div class="tech-tags">
+              {p.tech.map((t) => (
+                <span class="tech-tag">{t}</span>
+              ))}
+            </div>
 
             {p.highlights?.length ? (
               <ul class="bullets">
@@ -82,47 +242,28 @@ const workProjects = [
               </ul>
             ) : null}
 
-            <div class="actions">
-              <a class="button-purple" href={p.url} target="_blank" rel="noopener">
-                View Code
-              </a>
-              {p.live ? (
-                <a class="button-ghost" href={p.live} target="_blank" rel="noopener">
-                  Live Demo
-                </a>
-              ) : null}
-            </div>
+            <a class="button-purple" href={p.url} target="_blank" rel="noopener">
+              View Code
+            </a>
           </article>
         ))}
       </div>
     </section>
 
-    <!-- WORK / CONFIDENTIAL PROJECTS -->
-    <section class="section">
-      <h2 class="section-title">
-        PROFESSIONAL WORK <span class="section-tag">Confidential</span>
-      </h2>
-      <p class="section-subtitle">
-        Visuals + responsibilities shown. Source code is not public due to NDA/company policy—happy to walk through my work in an interview.
-      </p>
-
-      <div class="project-list">
-        {workProjects.map((p) => (
-          <article class="card confidential">
-            <h3 class="card-title">
-              {p.name} <span class="badge"></span>
-            </h3>
+    <!-- GROUP PROJECTS -->
+    <section class="projects-section" id="group">
+      <h2 class="section-title">GROUP PROJECTS</h2>
+      <div class="project-grid small-cards">
+        {groupProjects.map((p) => (
+          <article class="small-card">
+            <h3 class="card-title">{p.name}</h3>
             <p class="card-desc">{p.desc}</p>
 
-            {p.img ? (
-              <img class="work-image" src={p.img} alt={`${p.name} screenshot`} loading="lazy" />
-            ) : null}
-
-            <p class="meta">
-              <span class="meta-label">Context:</span> {p.company}
-              <br />
-              <span class="meta-label">Tech:</span> {p.tech.join(" • ")}
-            </p>
+            <div class="tech-tags">
+              {p.tech.map((t) => (
+                <span class="tech-tag">{t}</span>
+              ))}
+            </div>
 
             {p.highlights?.length ? (
               <ul class="bullets">
@@ -130,13 +271,9 @@ const workProjects = [
               </ul>
             ) : null}
 
-            <p class="confidential-note">{p.note}</p>
-
-            <div class="actions">
-              <a class="button-ghost" href="/contact">
-                Contact to discuss
-              </a>
-            </div>
+            <a class="button-purple" href={p.url} target="_blank" rel="noopener">
+              View Code
+            </a>
           </article>
         ))}
       </div>
