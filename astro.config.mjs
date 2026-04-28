@@ -6,4 +6,9 @@ export default defineConfig({
   site: 'https://lasperkaine.github.io',
   base: '/portfolio',
 
-  });
+  // Recommended additions for GitHub Pages
+  trailingSlash: 'never',
+  build: {
+    assets: '_astro'   // helps with asset handling
+  }
+});
