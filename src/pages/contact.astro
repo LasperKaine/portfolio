@@ -2,41 +2,40 @@
 import BaseLayout from './layouts/BaseLayout.astro'
 ---
 
-<BaseLayout title="Contact — LasperKaine">
+<BaseLayout title="Contact — Kasper Laine">
   <section class="contact-page">
     <div class="contact-container">
-      <h1 class="glitch">GET IN TOUCH</h1>
+      <h1 class="glitch">CONTACT</h1>
       <p class="contact-subtitle">
-        Have an opportunity, feedback, or just want to connect? Reach out!
+        Want to discuss work, collaboration, or have a question? I'm quick to reply.
       </p>
-
-      <div class="contact-methods">
-        <div class="method-card">
-          <h2>Email</h2>
-          <p>The fastest way to reach me.</p>
-          <a href="mailto:kasperlaine05@gmail.com" class="button-purple">Send Email</a>
+      
+      <div class="contact-box">
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Email</h3>
+            <p class="contact-label">kasperlaine05@gmail.com</p>
+            <a href="mailto:kasperlaine05@gmail.com" class="button-purple">Send Email</a>
+          </div>
+          
+          <div class="contact-card">
+            <h3>LinkedIn</h3>
+            <p class="contact-label">Connect on LinkedIn</p>
+            <a href="https://linkedin.com/in/kasper-laine-4a131231" target="_blank" rel="noopener" class="button-purple">Visit Profile</a>
+          </div>
+          
+          <div class="contact-card">
+            <h3>GitHub</h3>
+            <p class="contact-label">Check out my work</p>
+            <a href="https://github.com/LasperKaine" target="_blank" rel="noopener" class="button-purple">View GitHub</a>
+          </div>
         </div>
 
-        <div class="method-card">
-          <h2>LinkedIn</h2>
-          <p>Let's connect on the professional network.</p>
-          <a href="https://www.linkedin.com/in/kasper-laine-a4a131231/" target="_blank" rel="noopener" class="button-purple">Visit Profile</a>
-        </div>
-
-        <div class="method-card">
-          <h2>GitHub</h2>
-          <p>Check out my code & open-source work.</p>
-          <a href="https://github.com/LasperKaine" target="_blank" rel="noopener" class="button-purple">View GitHub</a>
+        <div class="contact-footer">
+          <p><strong>Typically replies within 1–2 days</strong></p>
+          <p>Open to junior developer positions, freelance projects, and collaboration opportunities.</p>
         </div>
       </div>
-
-      <section class="quick-response">
-        <h2>Quick Response Time</h2>
-        <p>
-          I aim to respond to all inquiries within <strong>24–48 hours</strong>. 
-          If you don't hear back, feel free to ping me on LinkedIn.
-        </p>
-      </section>
     </div>
   </section>
 </BaseLayout>
