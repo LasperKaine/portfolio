@@ -2,13 +2,11 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://lasperkaine.github.io',
-  base: '/portfolio',
+  base: process.env.NODE_ENV === 'production' ? '/portfolio' : '/',
 
   trailingSlash: 'never',
 
-  // ← Add these two lines
   build: {
-    assets: 'assets'          // Change default _astro folder to "assets"
-  }
+    assets: 'assets',
+  },
 });
