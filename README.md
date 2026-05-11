@@ -1,43 +1,73 @@
-# Astro Starter Kit: Minimal
+# Kasper Laine's Portfolio
 
-```sh
-npm create astro@latest -- --template minimal
+Welcome to my personal portfolio website!  
+This site is a curated collection of my projects, experiences, and skills as a developer and creative professional.
+
+---
+
+## 🧑‍💻 About Me
+
+Hi! I’m **Kasper Laine** – a passionate web developer who loves building beautiful, functional, and accessible digital experiences.
+
+- **Location:** [Helsinki]
+- **Expertise:** Front-End Development, UI Engineering, Responsive Design
+- **Interests:** Web technologies, creative coding, and turning ideas into reality
+
+---
+
+## What’s Inside
+
+- **Project Gallery** – Real-world projects with links, descriptions, and code.
+- **Skills & Tools** – Overview of my technical stack and proficiencies.
+- **About Section** – Learn who I am as a professional.
+- **Resume & Contact** – Download my resume or get in touch!
+
+---
+
+## Tech Stack
+
+This website is built using:
+
+- **[Astro](https://astro.build/):** Modern framework for fast static sites
+- **CSS:** Clean, custom styles for each section
+- **JavaScript:** Interactive components for an enhanced user experience
+
+---
+
+## Live Demo
+
+Check out the portfolio live: [https://kasper-laine-portfolio.vercel.app/](https://kasper-laine-portfolio.vercel.app/)
+
+---
+
+## Run Locally
+
+To clone and run this portfolio on your machine:
+
+```bash
+git clone https://github.com/LasperKaine/portfolio.git
+cd portfolio
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Then open [http://localhost:4321](http://localhost:4321) in your browser.
 
-## 🚀 Project Structure
+---
 
-Inside of your Astro project, you'll see the following folders and files:
+## Customization
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Feel free to fork this repo and use it as your own portfolio!  
+Change images, text, tech stack, and add your own projects in the `/src` folder.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Contact
 
-Any static assets, like images, can be placed in the `public/` directory.
+- **Email:** [kasperlaine05@gmail.com]
+- **LinkedIn:** [[your-linkedin-profile](https://www.linkedin.com/in/kasper-laine-a4a131231/)]
+- **Resume:** [[link-to-resume.pdf](https://kasper-laine-portfolio.vercel.app/resume.pdf)]
 
-## 🧞 Commands
+---
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+_Thanks for visiting my portfolio!_
