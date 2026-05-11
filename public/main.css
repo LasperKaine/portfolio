@@ -68,6 +68,21 @@ h2, h3 {
   transition: border-color 0.3s, box-shadow 0.3s, color 0.3s;
   display: inline-block;
   font-size: 14px;
+}
+
+.button-ghost-projects {
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  color: #ECE4FF;
+  border: 1px solid #9D50FF66;
+  box-shadow: 0 0 10px #9D50FF22;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s, color 0.3s;
+  display: inline-block;
+  font-size: 14px;
   margin-top: 2.5rem;
 }
 
