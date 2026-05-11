@@ -65,8 +65,8 @@ Change images, text, tech stack, and add your own projects in the `/src` folder.
 ## Contact
 
 - **Email:** [kasperlaine05@gmail.com]
-- **LinkedIn:** [[your-linkedin-profile](https://www.linkedin.com/in/kasper-laine-a4a131231/)]
-- **Resume:** [[link-to-resume.pdf](https://kasper-laine-portfolio.vercel.app/resume.pdf)]
+- **LinkedIn:** [[(https://www.linkedin.com/in/kasper-laine-a4a131231/](https://www.linkedin.com/in/kasper-laine-a4a131231/)]
+- **Resume:** [[https://kasper-laine-portfolio.vercel.app/resume.pdf](https://kasper-laine-portfolio.vercel.app/resume.pdf)]
 
 ---
 
