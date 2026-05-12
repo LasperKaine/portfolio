@@ -18,11 +18,9 @@ export const translations = {
     languages: 'English / Finnish',
     languagesLabel: 'Languages',
     letsWork: "Let's work together",
-    collaboration:
-      'I’m looking for junior developer opportunities. Feel free to reach out for collaboration or questions!',
+    collaboration: 'I\'m looking for junior developer opportunities. Feel free to reach out for collaboration or questions!',
     contactMe: 'Contact Me',
   },
-
   fi: {
     home: 'Koti',
     projects: 'Projektit',
@@ -42,11 +40,9 @@ export const translations = {
     languages: 'Englanti / Suomi',
     languagesLabel: 'Kielet',
     letsWork: 'Tehdään yhteistyötä',
-    collaboration:
-      'Etsin junior-kehittäjän paikkoja. Ota rohkeasti yhteyttä yhteistyöstä tai kysymyksistä!',
+    collaboration: 'Etsin junior-kehittäjän paikkoja. Ota rohkeasti yhteyttä yhteistyöstä tai kysymyksistä!',
     contactMe: 'Ota yhteyttä',
   },
-
   sv: {
     home: 'Hem',
     projects: 'Projekt',
@@ -66,43 +62,20 @@ export const translations = {
     languages: 'Engelska / Finska',
     languagesLabel: 'Språk',
     letsWork: 'Låt oss arbeta tillsammans',
-    collaboration:
-      'Jag söker juniorutvecklar möjligheter. Kontakta mig gärna för samarbete eller frågor!',
+    collaboration: 'Jag söker junioutvecklare möjligheter. Känna dig fri att kontakta mig för samarbete eller frågor!',
     contactMe: 'Kontakta mig',
   },
-};
+} as const;
 
-export function getLang() {
-  if (typeof window === 'undefined') return 'en';
+export type Language = 'en' | 'fi' | 'sv';
+export type TranslationKey = keyof typeof translations.en;
 
-  return localStorage.getItem('language') || 'en';
+export function t(key: TranslationKey, lang?: Language): string {
+  const language = lang || (typeof localStorage !== 'undefined' ? localStorage.getItem('language') as Language : null) || 'en';
+  return translations[language as Language]?.[key] || key;
 }
 
-export function t(key: string): string {
-  const lang = getLang();
-
-  return (
-    translations[lang as keyof typeof translations]?.[
-      key as keyof typeof translations.en
-    ] || key
-  );
-}
-
-export function applyTranslations() {
-  const lang = getLang();
-
-  document.querySelectorAll('[data-i18n]').forEach((element) => {
-    const key = element.getAttribute('data-i18n');
-
-    if (!key) return;
-
-    const translation =
-      translations[lang as keyof typeof translations]?.[
-        key as keyof typeof translations.en
-      ];
-
-    if (translation) {
-      element.textContent = translation;
-    }
-  });
+export function getCurrentLanguage(): Language {
+  if (typeof localStorage === 'undefined') return 'en';
+  return (localStorage.getItem('language') as Language) || 'en';
 }

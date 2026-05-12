@@ -99,7 +99,13 @@
       if (target.name === 'language') {
         localStorage.setItem('language', target.value);
 
+        // Dispatch event to trigger translations
         window.dispatchEvent(new Event('languageChanged'));
+
+        // Reload page to apply all translations
+        setTimeout(() => {
+          location.reload();
+        }, 100);
       }
     });
   }

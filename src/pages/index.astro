@@ -6,42 +6,35 @@ import BaseLayout from "./layouts/BaseLayout.astro";
   <section class="hero">
     <div class="hero-content">
       <h1 class="glitch">Kasper Laine</h1>
-      <h2 class="hero-subtitle">Web / Software Developer</h2>
-      <p class="hero-desc">
-        Helsinki-based web and software developer with hands-on experience in IT
-        support, digital solutions, and collaborative projects. Currently
-        studying Software Development at Metropolia University of Applied
-        Sciences, focusing on practical software engineering and modern web
-        technologies.<br />
-        I'm always learning and looking for ways to build better solutions.
-      </p>
+      <h2 class="hero-subtitle" data-i18n="webDeveloper"></h2>
+      <p class="hero-desc" data-i18n="heroDesc"></p>
       <div class="hero-ctas">
-        <a href="/projects" class="button-purple">View Projects</a>
+        <a href="/projects" class="button-purple" data-i18n="viewProjects"></a>
         <a
           href="/resume.pdf"
           target="_blank"
           rel="noopener"
-          class="button-ghost">Resume</a
-        >
+          class="button-ghost"
+          data-i18n="resume"></a>
         <a
           href="https://www.linkedin.com/in/kasper-laine-a4a131231/"
           target="_blank"
           rel="noopener"
-          class="button-ghost">LinkedIn</a
-        >
+          class="button-ghost"
+          data-i18n="linkedin"></a>
         <a
           href="https://github.com/LasperKaine"
           target="_blank"
           rel="noopener"
-          class="button-ghost">GitHub</a
-        >
+          class="button-ghost"
+          data-i18n="github"></a>
       </div>
     </div>
   </section>
 
   <section class="quick-facts">
     <div class="facts-container">
-      <h2 class="section-title">Quick Facts</h2>
+      <h2 class="section-title" data-i18n="quickFacts"></h2>
       <div class="facts-grid">
         <div class="fact">
           <svg
@@ -55,8 +48,8 @@ import BaseLayout from "./layouts/BaseLayout.astro";
             <line x1="2" y1="17" x2="22" y2="17"></line>
             <line x1="6" y1="21" x2="18" y2="21"></line>
           </svg>
-          <span class="fact-main">Web Developer</span>
-          <span class="fact-sub">Helsinki, Finland</span>
+          <span class="fact-main" data-i18n="webDeveloper"></span>
+          <span class="fact-sub" data-i18n="helsinki"></span>
         </div>
         <div class="fact">
           <svg
@@ -71,8 +64,8 @@ import BaseLayout from "./layouts/BaseLayout.astro";
               d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
             ></path>
           </svg>
-          <span class="fact-main">BEng Student</span>
-          <span class="fact-sub">Software Production, Metropolia</span>
+          <span class="fact-main" data-i18n="bengStudent"></span>
+          <span class="fact-sub" data-i18n="softwareProduction"></span>
         </div>
         <div class="fact">
           <svg
@@ -86,8 +79,8 @@ import BaseLayout from "./layouts/BaseLayout.astro";
               d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 1 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
             ></path>
           </svg>
-          <span class="fact-main">IT & Web</span>
-          <span class="fact-sub">Background</span>
+          <span class="fact-main" data-i18n="itWeb"></span>
+          <span class="fact-sub" data-i18n="background"></span>
         </div>
         <div class="fact">
           <svg
@@ -103,8 +96,8 @@ import BaseLayout from "./layouts/BaseLayout.astro";
               d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
             ></path>
           </svg>
-          <span class="fact-main">English / Finnish</span>
-          <span class="fact-sub">Languages</span>
+          <span class="fact-main" data-i18n="languages"></span>
+          <span class="fact-sub" data-i18n="languagesLabel"></span>
         </div>
       </div>
     </div>
@@ -112,12 +105,9 @@ import BaseLayout from "./layouts/BaseLayout.astro";
 
   <section class="cta-section">
     <div class="cta-box">
-      <h2>Let's work together</h2>
-      <p>
-        I'm looking for junior developer opportunities. Feel free to reach out
-        for collaboration or questions!
-      </p>
-      <a href="/contact" class="button-purple">Contact Me</a>
+      <h2 data-i18n="letsWork"></h2>
+      <p data-i18n="collaboration"></p>
+      <a href="/contact" class="button-purple" data-i18n="contactMe"></a>
     </div>
   </section>
 </BaseLayout>

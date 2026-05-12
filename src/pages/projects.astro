@@ -1,178 +1,33 @@
 ---
 import BaseLayout from './layouts/BaseLayout.astro'
+import { projectsData } from '../lib/projects'
 
-const workProjects = [
-  {
-    name: "UI Campaign Patterns",
-    company: "Alfons Digital (8.1.2024 - 22.5.2024)",
-    desc: "Built reusable WordPress patterns for creating dynamic case showcase pages. Designed flexible components to streamline client project setups.",
-    image: "/images/projects/ui-campaign-patterns.jpg",
-    tech: ["WordPress", "CSS"],
-    highlights: [
-      "Custom Gutenberg React block components",
-      "Reusable pattern library for multiple clients",
-      "Responsive design across all breakpoints",
-      "Accessibility testing (WCAG compliance)",
-    ],
-  },
-  {
-    name: "HSKK Marketing Site",
-    company: "Alfons Digital",
-    desc: "Marketing website for Helsingin seudun kauppakamari showcasing their various services with custom layouts and optimized UX.",
-    image: "/images/projects/hskk-marketing.jpg",
-    tech: ["WordPress", "PHP", "CSS"],
-    highlights: [
-      "Custom post types for services",
-      "Mobile-responsive design",
-      "Performance optimization",
-      "Saavutettavuus (accessibility) testing",
-    ],
-  },
-  {
-    name: "Future School",
-    company: "Alfons Digital",
-    desc: "Story-based survey website for Lasten ja nuortensäätiö. Interactive React components guide users through narratives with form collection.",
-    image: "/images/projects/future-school.jpg",
-    tech: ["React", "WordPress"],
-    highlights: [
-      "Interactive story-based UI flow",
-      "Dynamic form handling",
-      "Custom data collection",
-      "Accessibility compliance verified",
-    ],
-  },
-  {
-    name: "Impact Library & Network",
-    company: "Alfons Digital",
-    desc: "Dual-component project featuring a workshop directory (Impact Library) and an interactive map (Impact Network) using custom post types.",
-    image: "/images/projects/impact-library-network.jpg",
-    tech: ["React", "WordPress", "PHP", "JavaScript"],
-    highlights: [
-      "Custom post type taxonomy system",
-      "Interactive map with markers",
-      "Category filtering for workshops",
-      "Full accessibility testing suite",
-    ],
-  },
-]
-
-const personalProjects = [
-  {
-    name: "Portfolio",
-    desc: "Personal portfolio website built with Astro showcasing projects, experience, and skills. Modern, performant, and fully responsive.",
-    url: "https://github.com/LasperKaine/portfolio",
-    tech: ["Astro", "CSS", "JavaScript", "TypeScript"],
-    highlights: [
-      "Static site generation with Astro",
-      "Fast performance & SEO optimized",
-      "Responsive design",
-      "Dark theme with smooth transitions",
-    ],
-  },
-  {
-    name: "Resume Builder",
-    desc: "A resume/CV builder application that allows users to create and customize their own resumes using a JSON-based format.",
-    url: "https://github.com/LasperKaine/resume-builder",
-    tech: ["TypeScript", "React", "Vite"],
-    highlights: [
-      "JSON-based resume data format",
-      "Customizable templates",
-      "Export to PDF",
-      "Responsive design",
-    ],
-  },
-  {
-    name: "UniAteriat",
-    desc: "A web application project showcasing modern JavaScript practices and interactive UI components.",
-    url: "https://github.com/LasperKaine/web-sovellus",
-    tech: ["JavaScript", "CSS", "HTML"],
-    highlights: [
-      "Interactive components",
-      "Modern JavaScript ES6+",
-      "CSS animations",
-    ],
-  },
-]
-
-const groupProjects = [
-  {
-    name: "City Sushi",
-    desc: "A restaurant website for City Sushi featuring menu, location, and ordering information.",
-    url: "https://github.com/LasperKaine/citysushi-react",
-    tech: ["HTML", "CSS", "JavaScript", "React", "Tailwind"],
-    highlights: [
-      "Interactive menu display",
-      "Responsive layout",
-      "Smooth animations",
-    ],
-  },
-  {
-    name: "University Admission Queue Simulation",
-    desc: "University admission queue system simulation project. Demonstrates queue data structures and algorithms for processing student admissions.",
-    url: "https://github.com/LasperKaine/University-Admission-Queue-System-Simulation",
-    tech: ["Java", "CSS"],
-    highlights: [
-      "Queue data structure implementation",
-      "Student admission simulation",
-      "Visual queue representation",
-    ],
-  },
-  {
-    name: "Freightfall",
-    desc: "A collaborative group project creating an interactive game/application.",
-    url: "https://github.com/Hexdoktor/Freightfall_ryhm-projekti",
-    tech: ["Python", "HTML", "JavaScript", "CSS"],
-    highlights: [
-      "Team collaboration using Git",
-      "Cross-language integration",
-      "Interactive gameplay mechanics",
-    ],
-  },
-]
-
-const additionalClients = [
-  "Helsingin seudun kauppakamari",
-  "Turun seudun kauppakamari",
-  "Kauppakamari – KoulutusOnline",
-  "Kauppakamari - TyösuhdePRO",
-  "Kauppakamari – KauppakamariTieto",
-  "Kirjailijalehti",
-  "Kirjailijaliitto",
-  "forumvirium",
-  "kiipeilyareena",
-  "h2clusters",
-  "lukuliike",
-  "nordic label",
-  "vasemmistoliiton sivusto",
-  "Alfons Education & Alfons Digital websites",
-]
+// Default to English on page load
+const data = projectsData.en;
+const { workProjects, personalProjects, groupProjects, additionalClients } = data;
 ---
 
 <BaseLayout title="Projects">
   <section class="projects-wrapper">
     <header class="projects-header">
-      <h1 class="glitch">PROJECTS</h1>
-      <p class="subtitle">
-        Professional work from my internship at Alfons Digital, plus personal and group projects on GitHub.
-      </p>
+      <h1 class="glitch" data-i18n="projectsTitle">PROJECTS</h1>
+      <p class="subtitle" data-i18n="projectsSubtitle">Professional work from my internship at Alfons Digital, plus personal and group projects on GitHub.</p>
     </header>
 
     <!-- NAVIGATION MENU -->
     <nav class="projects-nav">
-      <a href="#professional" class="nav-link active">Professional Work</a>
-      <a href="#personal" class="nav-link">Personal</a>
-      <a href="#group" class="nav-link">Group</a>
+      <a href="#professional" class="nav-link active" data-i18n="professionalWork">Professional Work</a>
+      <a href="#personal" class="nav-link" data-i18n="personalProjects">Personal</a>
+      <a href="#group" class="nav-link" data-i18n="groupProjects">Group</a>
     </nav>
 
     <!-- PROFESSIONAL WORK (FEATURED) -->
     <section class="projects-section featured-section" id="professional">
-      <h2 class="section-title">PROFESSIONAL WORK</h2>
-      <p class="section-subtitle">
-        Projects from my fullstack developer internship at Alfons Digital (January – May 2024). Built WordPress sites with React components, custom post types, and modern frontend technologies. Implemented automated accessibility testing across all projects to ensure WCAG compliance.
-      </p>
+      <h2 class="section-title" data-i18n="professionalWork">PROFESSIONAL WORK</h2>
+      <p class="section-subtitle" data-i18n="professionalWorkDesc">Projects from my fullstack developer internship at Alfons Digital (January – May 2024). Built WordPress sites with React components, custom post types, and modern frontend technologies.</p>
 
-      <div class="project-grid large-cards">
-        {workProjects.map((p) => (
+      <div class="project-grid large-cards" id="workProjectsContainer">
+        {workProjects.map((p: any) => (
           <article class="large-card">
             {p.image && (
               <div class="project-image">
@@ -189,20 +44,18 @@ const additionalClients = [
               </p>
 
               <div class="tech-tags">
-                {p.tech.map((t) => (
+                {p.tech.map((t: string) => (
                   <span class="tech-tag">{t}</span>
                 ))}
               </div>
 
               {p.highlights?.length ? (
                 <ul class="bullets">
-                  {p.highlights.map((h) => <li>{h}</li>)}
+                  {p.highlights.map((h: string) => <li>{h}</li>)}
                 </ul>
               ) : null}
 
-              <a class="button-ghost-projects" href="/contact">
-                Contact to discuss
-              </a>
+              <a class="button-ghost-projects" href="/contact" data-i18n="contactToDiscuss">Contact to discuss</a>
             </div>
           </article>
         ))}
@@ -210,41 +63,39 @@ const additionalClients = [
 
       <!-- ADDITIONAL CLIENTS -->
       <div class="additional-clients">
-        <h3>Additional Client Work</h3>
-        <p>Continued development and maintenance on 12+ client projects:</p>
-        <ul class="client-list">
-          {additionalClients.map((client) => (
+        <h3 data-i18n="additionalClients">Additional Client Work</h3>
+        <p data-i18n="continuedDevelopment">Continued development and maintenance on 12+ client projects:</p>
+        <ul class="client-list" id="clientsList">
+          {additionalClients.map((client: string) => (
             <li>{client}</li>
           ))}
         </ul>
-        <p class="note">All projects included automated saavutettavuus (accessibility) testing to ensure WCAG compliance.</p>
+        <p class="note" data-i18n="allProjectsAccessibility">All projects included automated accessibility testing to ensure WCAG compliance.</p>
       </div>
     </section>
 
     <!-- PERSONAL PROJECTS -->
     <section class="projects-section" id="personal">
-      <h2 class="section-title">PERSONAL PROJECTS</h2>
-      <div class="project-grid small-cards">
-        {personalProjects.map((p) => (
+      <h2 class="section-title" data-i18n="personalProjects">PERSONAL PROJECTS</h2>
+      <div class="project-grid small-cards" id="personalProjectsContainer">
+        {personalProjects.map((p: any) => (
           <article class="small-card">
             <h3 class="card-title">{p.name}</h3>
             <p class="card-desc">{p.desc}</p>
 
             <div class="tech-tags">
-              {p.tech.map((t) => (
+              {p.tech.map((t: string) => (
                 <span class="tech-tag">{t}</span>
               ))}
             </div>
 
             {p.highlights?.length ? (
               <ul class="bullets">
-                {p.highlights.map((h) => <li>{h}</li>)}
+                {p.highlights.map((h: string) => <li>{h}</li>)}
               </ul>
             ) : null}
 
-            <a class="button-purple" href={p.url} target="_blank" rel="noopener">
-              View Code
-            </a>
+            <a class="button-purple" href={p.url} target="_blank" rel="noopener" data-i18n="viewCode">View Code</a>
           </article>
         ))}
       </div>
@@ -252,31 +103,129 @@ const additionalClients = [
 
     <!-- GROUP PROJECTS -->
     <section class="projects-section" id="group">
-      <h2 class="section-title">GROUP PROJECTS</h2>
-      <div class="project-grid small-cards">
-        {groupProjects.map((p) => (
+      <h2 class="section-title" data-i18n="groupProjects">GROUP PROJECTS</h2>
+      <div class="project-grid small-cards" id="groupProjectsContainer">
+        {groupProjects.map((p: any) => (
           <article class="small-card">
             <h3 class="card-title">{p.name}</h3>
             <p class="card-desc">{p.desc}</p>
 
             <div class="tech-tags">
-              {p.tech.map((t) => (
+              {p.tech.map((t: string) => (
                 <span class="tech-tag">{t}</span>
               ))}
             </div>
 
             {p.highlights?.length ? (
               <ul class="bullets">
-                {p.highlights.map((h) => <li>{h}</li>)}
+                {p.highlights.map((h: string) => <li>{h}</li>)}
               </ul>
             ) : null}
 
-            <a class="button-purple" href={p.url} target="_blank" rel="noopener">
-              View Code
-            </a>
+            <a class="button-purple" href={p.url} target="_blank" rel="noopener" data-i18n="viewCode">View Code</a>
           </article>
         ))}
       </div>
     </section>
   </section>
+
+  <script is:inline define:vars={{ projectsData }}>
+    function updateProjects() {
+      const lang = localStorage.getItem('language') || 'en';
+      const data = projectsData[lang] || projectsData.en;
+
+      // Update work projects
+      const workContainer = document.getElementById('workProjectsContainer');
+      if (workContainer) {
+        workContainer.innerHTML = data.workProjects.map(p => `
+          <article class="large-card">
+            ${p.image ? `
+              <div class="project-image">
+                <img src="${p.image}" alt="${p.name}" loading="lazy" />
+              </div>
+            ` : ''}
+            
+            <div class="project-content">
+              <h3 class="card-title">${p.name}</h3>
+              <p class="card-desc">${p.desc}</p>
+
+              <p class="meta">
+                <span class="meta-label">Context:</span> ${p.company}
+              </p>
+
+              <div class="tech-tags">
+                ${p.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+              </div>
+
+              ${p.highlights?.length ? `
+                <ul class="bullets">
+                  ${p.highlights.map(h => `<li>${h}</li>`).join('')}
+                </ul>
+              ` : ''}
+
+              <a class="button-ghost-projects" href="/contact" data-i18n="contactToDiscuss">Contact to discuss</a>
+            </div>
+          </article>
+        `).join('');
+      }
+
+      // Update personal projects
+      const personalContainer = document.getElementById('personalProjectsContainer');
+      if (personalContainer) {
+        personalContainer.innerHTML = data.personalProjects.map(p => `
+          <article class="small-card">
+            <h3 class="card-title">${p.name}</h3>
+            <p class="card-desc">${p.desc}</p>
+
+            <div class="tech-tags">
+              ${p.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+            </div>
+
+            ${p.highlights?.length ? `
+              <ul class="bullets">
+                ${p.highlights.map(h => `<li>${h}</li>`).join('')}
+              </ul>
+            ` : ''}
+
+            <a class="button-purple" href="${p.url}" target="_blank" rel="noopener" data-i18n="viewCode">View Code</a>
+          </article>
+        `).join('');
+      }
+
+      // Update group projects
+      const groupContainer = document.getElementById('groupProjectsContainer');
+      if (groupContainer) {
+        groupContainer.innerHTML = data.groupProjects.map(p => `
+          <article class="small-card">
+            <h3 class="card-title">${p.name}</h3>
+            <p class="card-desc">${p.desc}</p>
+
+            <div class="tech-tags">
+              ${p.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+            </div>
+
+            ${p.highlights?.length ? `
+              <ul class="bullets">
+                ${p.highlights.map(h => `<li>${h}</li>`).join('')}
+              </ul>
+            ` : ''}
+
+            <a class="button-purple" href="${p.url}" target="_blank" rel="noopener" data-i18n="viewCode">View Code</a>
+          </article>
+        `).join('');
+      }
+
+      // Update clients list
+      const clientsList = document.getElementById('clientsList');
+      if (clientsList) {
+        clientsList.innerHTML = data.additionalClients.map(client => `<li>${client}</li>`).join('');
+      }
+    }
+
+    // Update on page load
+    updateProjects();
+
+    // Update when language changes
+    window.addEventListener('languageChanged', updateProjects);
+  </script>
 </BaseLayout>

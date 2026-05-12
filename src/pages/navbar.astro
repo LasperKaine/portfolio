@@ -1,8 +1,10 @@
 ---
 import LanguageThemeSwitcher from '../components/LanguageThemeSwitcher.astro';
 import MobileMenu from '../components/MobileMenu.astro';
+import { t, getCurrentLanguage } from '../lib/i18n';
 
 const currentPath = Astro.url.pathname;
+const lang = getCurrentLanguage();
 
 const isActive = (path: string) => currentPath === path || currentPath.startsWith(path + '/');
 ---
@@ -13,39 +15,20 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
       <span class="logo-text">KL</span>
     </a>
     <ul class="nav-links">
-<li>
-  <a href="/" class={isActive('/') ? 'active' : ''} data-i18n="home">
-    Home
-  </a>
-</li>
-
-<li>
-  <a href="/projects" class={isActive('/projects') ? 'active' : ''} data-i18n="projects">
-    Projects
-  </a>
-</li>
-
-<li>
-  <a href="/about" class={isActive('/about') ? 'active' : ''} data-i18n="about">
-    About
-  </a>
-</li>
-
-<li>
-  <a href="/contact" class={isActive('/contact') ? 'active' : ''} data-i18n="contact">
-    Contact
-  </a>
-</li>
+      <li><a href="/" class={isActive('/') ? 'active' : ''}>{t('home', lang)}</a></li>
+      <li><a href="/projects" class={isActive('/projects') ? 'active' : ''}>{t('projects', lang)}</a></li>
+      <li><a href="/about" class={isActive('/about') ? 'active' : ''}>{t('about', lang)}</a></li>
+      <li><a href="/contact" class={isActive('/contact') ? 'active' : ''}>{t('contact', lang)}</a></li>
     </ul>
     <div class="nav-socials">
       <a href="https://github.com/LasperKaine" target="_blank" rel="noopener" title="GitHub">
-        GitHub
+        {t('github', lang)}
       </a>
       <a href="https://www.linkedin.com/in/kasper-laine-a4a131231/" target="_blank" rel="noopener" title="LinkedIn">
-        LinkedIn
+        {t('linkedin', lang)}
       </a>
       <a href="/resume.pdf" target="_blank" rel="noopener" class="resume-link">
-        Resume
+        {t('resume', lang)}
       </a>
     </div>
     <div class="nav-controls">
@@ -57,8 +40,8 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
 
 <style>
   .navbar {
-    background: #141013;
-    border-bottom: 1px solid #9D50FF44;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
     z-index: 999;
@@ -79,13 +62,13 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
     font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
-    color: #ECE4FF;
+    color: var(--text-primary);
     text-shadow: 0 0 10px #9D50FF;
     min-width: fit-content;
   }
 
   .logo-text {
-    color: #A259F7;
+    color: var(--accent);
     font-family: 'VT323', monospace;
     letter-spacing: 0.1em;
   }
@@ -100,7 +83,7 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
   }
 
   .nav-links a {
-    color: #ECE4FF;
+    color: var(--text-primary);
     text-decoration: none;
     font-size: 0.95rem;
     transition: color 0.3s, text-shadow 0.3s;
@@ -109,9 +92,9 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
 
   .nav-links a:hover,
   .nav-links a.active {
-    color: #A259F7;
+    color: var(--accent);
     text-shadow: 0 0 8px #9D50FF;
-    border-bottom-color: #A259F7;
+    border-bottom-color: var(--accent);
   }
 
   .nav-socials {
@@ -121,14 +104,14 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
   }
 
   .nav-socials a {
-    color: #ECE4FF;
+    color: var(--text-primary);
     text-decoration: none;
     font-size: 0.9rem;
     transition: color 0.3s, text-shadow 0.3s;
   }
 
   .nav-socials a:hover {
-    color: #A259F7;
+    color: var(--accent);
     text-shadow: 0 0 8px #9D50FF;
   }
 
