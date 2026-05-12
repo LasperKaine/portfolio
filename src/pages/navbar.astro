@@ -1,4 +1,7 @@
 ---
+import LanguageThemeSwitcher from '../components/LanguageThemeSwitcher.astro';
+import MobileMenu from '../components/MobileMenu.astro';
+
 const currentPath = Astro.url.pathname;
 
 const isActive = (path: string) => currentPath === path || currentPath.startsWith(path + '/');
@@ -10,10 +13,29 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
       <span class="logo-text">KL</span>
     </a>
     <ul class="nav-links">
-      <li><a href="/" class={isActive('/') ? 'active' : ''}>Home</a></li>
-      <li><a href="/projects" class={isActive('/projects') ? 'active' : ''}>Projects</a></li>
-      <li><a href="/about" class={isActive('/about') ? 'active' : ''}>About</a></li>
-      <li><a href="/contact" class={isActive('/contact') ? 'active' : ''}>Contact</a></li>
+<li>
+  <a href="/" class={isActive('/') ? 'active' : ''} data-i18n="home">
+    Home
+  </a>
+</li>
+
+<li>
+  <a href="/projects" class={isActive('/projects') ? 'active' : ''} data-i18n="projects">
+    Projects
+  </a>
+</li>
+
+<li>
+  <a href="/about" class={isActive('/about') ? 'active' : ''} data-i18n="about">
+    About
+  </a>
+</li>
+
+<li>
+  <a href="/contact" class={isActive('/contact') ? 'active' : ''} data-i18n="contact">
+    Contact
+  </a>
+</li>
     </ul>
     <div class="nav-socials">
       <a href="https://github.com/LasperKaine" target="_blank" rel="noopener" title="GitHub">
@@ -26,5 +48,123 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
         Resume
       </a>
     </div>
+    <div class="nav-controls">
+      <LanguageThemeSwitcher />
+    </div>
+    <MobileMenu currentPath={currentPath} />
   </div>
 </nav>
+
+<style>
+  .navbar {
+    background: #141013;
+    border-bottom: 1px solid #9D50FF44;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 12px #a770ef11;
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    gap: 2rem;
+  }
+
+  .nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ECE4FF;
+    text-shadow: 0 0 10px #9D50FF;
+    min-width: fit-content;
+  }
+
+  .logo-text {
+    color: #A259F7;
+    font-family: 'VT323', monospace;
+    letter-spacing: 0.1em;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+  }
+
+  .nav-links a {
+    color: #ECE4FF;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s, text-shadow 0.3s;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #A259F7;
+    text-shadow: 0 0 8px #9D50FF;
+    border-bottom-color: #A259F7;
+  }
+
+  .nav-socials {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .nav-socials a {
+    color: #ECE4FF;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s, text-shadow 0.3s;
+  }
+
+  .nav-socials a:hover {
+    color: #A259F7;
+    text-shadow: 0 0 8px #9D50FF;
+  }
+
+  .resume-link {
+    padding: 6px 12px;
+    border: 1px solid #9D50FF66;
+    border-radius: 5px;
+    background: transparent;
+  }
+
+  .resume-link:hover {
+    background: #9D50FF11;
+    border-color: #cf71fc;
+  }
+
+  .nav-controls {
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .nav-container {
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .nav-socials {
+      display: none;
+    }
+
+    .nav-controls {
+      display: flex;
+    }
+  }
+</style>
