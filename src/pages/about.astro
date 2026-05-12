@@ -5,102 +5,80 @@ import BaseLayout from "./layouts/BaseLayout.astro";
 <BaseLayout title="About — Kasper Laine">
   <section class="about-page">
     <div class="about-container">
-      <h1 class="glitch">ABOUT</h1>
+      <h1 class="glitch" data-i18n="aboutTitle"></h1>
 
       <section class="about-section">
-        <h2>Who I am</h2>
+        <h2 data-i18n="whoIAm"></h2>
+        <p data-i18n="whoIAmDesc"></p>
+        <p data-i18n="passionate"></p>
         <p>
-          I’m a web and software developer in Helsinki with practical working
-          experience in IT support, digital projects, and content management.
-          Currently, I’m completing my Bachelor’s in Software Development at
-          Metropolia University of Applied Sciences.
-        </p>
-        <p>
-          I’m passionate about efficient solutions, clear documentation,
-          teamwork, and genuinely helping users and businesses with technology.
-        </p>
-        <p>
-          <strong>Location:</strong> Helsinki, Finland<br />
-          <strong>Email:</strong>
+          <strong data-i18n="location"></strong>: <span data-i18n="helsinki"></span><br />
+          <strong data-i18n="email"></strong>:
           <a href="mailto:kasperlaine05@gmail.com">kasperlaine05@gmail.com</a>
         </p>
       </section>
 
       <section class="about-section">
-        <h2>Skillset</h2>
+        <h2 data-i18n="skillset"></h2>
         <ul>
-          <li><strong>Frontend Development:</strong> HTML5, CSS3, JavaScript, React, Vue, Tailwind, WordPress, SCSS, TypeScript, Astro</li>
-          <li><strong>Backend & CMS:</strong> PHP, WordPress, Node.js, Express.js, REST APIs, MySQL, MariaDB</li>
-          <li><strong>Programming:</strong> Python, Java, C#</li>
-          <li><strong>Tools:</strong> Git, NPM, Visual Studio Code, Linux</li>
-          <li><strong>IT Support:</strong> Windows, Linux, MS Office, Computer Assembly, Maintenance</li>
-          <li><strong>Creative Tools:</strong> Photoshop, Illustrator, After Effects, Premiere Pro</li>
-          <li><strong>Project Work:</strong> Documentation, Planning, Team Communication</li>
-          <li><strong>Languages:</strong> English (good), Finnish (native), Swedish (basic)</li>
+          <li><strong data-i18n="frontendDevelopment"></strong>: <span data-i18n="frontendTechs"></span></li>
+          <li><strong data-i18n="backendCMS"></strong>: <span data-i18n="backendTechs"></span></li>
+          <li><strong data-i18n="programming"></strong>: <span data-i18n="programmingTechs"></span></li>
+          <li><strong data-i18n="tools"></strong>: <span data-i18n="toolsTechs"></span></li>
+          <li><strong data-i18n="itSupport"></strong>: <span data-i18n="itSupportTechs"></span></li>
+          <li><strong data-i18n="creativeTools"></strong>: <span data-i18n="creativeToolsTechs"></span></li>
+          <li><strong data-i18n="projectWork"></strong>: <span data-i18n="projectWorkTechs"></span></li>
+          <li><strong data-i18n="languagesSkill"></strong>: <span data-i18n="languagesSkillTechs"></span></li>
         </ul>
       </section>
 
       <section class="about-section">
-        <h2>Education</h2>
+        <h2 data-i18n="education"></h2>
         <div class="experience-item">
-          <h3>Bachelor of Engineering (ICT) — Software Development</h3>
-          <p class="exp-company">
-            Metropolia University of Applied Sciences, 2025–
-          </p>
+          <h3 data-i18n="bachelorEngineering"></h3>
+          <p class="exp-company" data-i18n="metropolia"></p>
         </div>
         <div class="experience-item">
-          <h3>Vocational Qualification in ICT - Web Development</h3>
-          <p class="exp-company">Business College Helsinki, 2021–2024</p>
+          <h3 data-i18n="vocationalQualification"></h3>
+          <p class="exp-company" data-i18n="businessCollege"></p>
         </div>
       </section>
 
       <section class="about-section">
-        <h2>Professional Experience</h2>
+        <h2 data-i18n="professionalExperience"></h2>
         <div class="experience-item">
-          <h3>Full Stack Software Developer</h3>
-          <p class="exp-company">Alfons Digital Oy</p>
-          <p class="exp-desc">
-            Worked on a variety of WordPress development tasks, building and
-            customizing websites using WordPress, React, PHP, Tailwind CSS, and
-            Git. Contributed to both frontend and backend features, and handled
-            development workflows with NPM. Demonstrated strong independence and
-            problem-solving skills, with the ability to quickly learn new
-            technologies and adapt to project requirements. Received positive
-            feedback for technical competence and work attitude, and was
-            recommended for similar roles.
-          </p>
+          <h3 data-i18n="fullStackDeveloper"></h3>
+          <p class="exp-company" data-i18n="alfonDigital"></p>
+          <p class="exp-desc" data-i18n="alfonDesc"></p>
         </div>
         <div class="experience-item">
-          <h3>IT Support (Digitalkkari)</h3>
-          <p class="exp-company">Helsingin kaupunki</p>
-          <p class="exp-desc">
-            Delivered user support, solved technical issues, and created
-            documentation for a diverse group of end-users.
-          </p>
+          <h3 data-i18n="itSupportRole"></h3>
+          <p class="exp-company" data-i18n="helsinkiCity"></p>
+          <p class="exp-desc" data-i18n="itSupportDesc"></p>
         </div>
       </section>
 
       <section class="about-section cta-section">
-        <h2>Contact</h2>
+        <h2 data-i18n="contact"></h2>
         <div class="connect-buttons">
           <a
             href="https://github.com/LasperKaine"
             target="_blank"
             rel="noopener"
-            class="button-purple">GitHub</a
-          >
+            class="button-purple"
+            data-i18n="github"></a>
           <a
             href="https://linkedin.com/in/kasper-laine-4a131231"
             target="_blank"
             rel="noopener"
-            class="button-purple">LinkedIn</a
-          >
+            class="button-purple"
+            data-i18n="linkedin"></a>
           <a
             href="/resume.pdf"
             target="_blank"
             rel="noopener"
-            class="button-ghost">Resume</a
-          >
+            class="button-ghost"
+            data-i18n="resume"></a>
         </div>
       </section>
     </div>

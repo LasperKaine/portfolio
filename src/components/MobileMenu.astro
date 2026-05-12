@@ -1,9 +1,12 @@
 ---
+import { t, getCurrentLanguage } from '../lib/i18n';
+
 interface Props {
   currentPath: string;
 }
 
 const { currentPath } = Astro.props;
+const lang = getCurrentLanguage();
 ---
 
 <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -13,16 +16,16 @@ const { currentPath } = Astro.props;
 </button>
 
 <div class="mobile-menu" id="mobile-menu">
-  <a href="/" class={currentPath === '/' ? 'active' : ''}>Home</a>
-  <a href="/projects" class={currentPath === '/projects' ? 'active' : ''}>Projects</a>
-  <a href="/about" class={currentPath === '/about' ? 'active' : ''}>About</a>
-  <a href="/contact" class={currentPath === '/contact' ? 'active' : ''}>Contact</a>
+  <a href="/" class={currentPath === '/' ? 'active' : ''}>{t('home', lang)}</a>
+  <a href="/projects" class={currentPath === '/projects' ? 'active' : ''}>{t('projects', lang)}</a>
+  <a href="/about" class={currentPath === '/about' ? 'active' : ''}>{t('about', lang)}</a>
+  <a href="/contact" class={currentPath === '/contact' ? 'active' : ''}>{t('contact', lang)}</a>
   
   <div class="menu-divider"></div>
   
-  <a href="https://github.com/LasperKaine" target="_blank" rel="noopener">GitHub</a>
-  <a href="https://www.linkedin.com/in/kasper-laine-a4a131231/" target="_blank" rel="noopener">LinkedIn</a>
-  <a href="/resume.pdf" target="_blank" rel="noopener">Resume</a>
+  <a href="https://github.com/LasperKaine" target="_blank" rel="noopener">{t('github', lang)}</a>
+  <a href="https://www.linkedin.com/in/kasper-laine-a4a131231/" target="_blank" rel="noopener">{t('linkedin', lang)}</a>
+  <a href="/resume.pdf" target="_blank" rel="noopener">{t('resume', lang)}</a>
 </div>
 
 <script is:inline>

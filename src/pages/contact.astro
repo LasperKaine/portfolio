@@ -5,35 +5,33 @@ import BaseLayout from './layouts/BaseLayout.astro'
 <BaseLayout title="Contact — Kasper Laine">
   <section class="contact-page">
     <div class="contact-container">
-      <h1 class="glitch">CONTACT</h1>
-      <p class="contact-subtitle">
-        Want to discuss work, collaboration, or have a question? I'm quick to reply.
-      </p>
+      <h1 class="glitch" data-i18n="contactTitle"></h1>
+      <p class="contact-subtitle" data-i18n="contactSubtitle"></p>
       
       <div class="contact-box">
         <div class="contact-grid">
           <div class="contact-card">
-            <h3>Email</h3>
+            <h3 data-i18n="email"></h3>
             <p class="contact-label">kasperlaine05@gmail.com</p>
-            <a href="mailto:kasperlaine05@gmail.com" class="button-purple">Send Email</a>
+            <a href="mailto:kasperlaine05@gmail.com" class="button-purple" data-i18n="sendEmail"></a>
           </div>
           
           <div class="contact-card">
-            <h3>LinkedIn</h3>
-            <p class="contact-label">Connect on LinkedIn</p>
-            <a href="https://linkedin.com/in/kasper-laine-4a131231" target="_blank" rel="noopener" class="button-purple">Visit Profile</a>
+            <h3 data-i18n="linkedin"></h3>
+            <p class="contact-label" data-i18n="contact"></p>
+            <a href="https://linkedin.com/in/kasper-laine-4a131231" target="_blank" rel="noopener" class="button-purple" data-i18n="visitProfile"></a>
           </div>
           
           <div class="contact-card">
-            <h3>GitHub</h3>
-            <p class="contact-label">Check out my work</p>
-            <a href="https://github.com/LasperKaine" target="_blank" rel="noopener" class="button-purple">View GitHub</a>
+            <h3 data-i18n="github"></h3>
+            <p class="contact-label" data-i18n="contact"></p>
+            <a href="https://github.com/LasperKaine" target="_blank" rel="noopener" class="button-purple" data-i18n="viewGitHub"></a>
           </div>
         </div>
 
         <div class="contact-footer">
-          <p><strong>Typically replies within 1–2 days</strong></p>
-          <p>Open to junior developer positions, freelance projects, and collaboration opportunities.</p>
+          <p><strong data-i18n="typicallyReplies"></strong></p>
+          <p data-i18n="openTo"></p>
         </div>
       </div>
     </div>
