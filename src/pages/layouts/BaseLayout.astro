@@ -2,22 +2,44 @@
 import Navbar from "../navbar.astro";
 import Footer from "../footer.astro";
 
-const { title = "LasperKaine — Developer Portfolio" } = Astro.props;
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "Kasper Laine — Full-Stack Developer Portfolio",
+  description = "Full-Stack Developer Portfolio. Experienced web developer specializing in React, WordPress, PHP, and modern web technologies. Based in Helsinki."
+} = Astro.props;
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
-    <title>{title}</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <meta
-      name="description"
-      content="Full-Stack Developer Portfolio"
-    />
-
+    
+    <!-- Primary Meta Tags (SEO) -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="full-stack developer, React, WordPress, PHP, web development, Helsinki, portfolio" />
+    <meta name="author" content="Kasper Laine" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lasperkaine.github.io/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://lasperkaine.github.io/" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lasperkaine.github.io/" />
+    
     <link rel="stylesheet" href="/main.css" />
     <link rel="stylesheet" href="/theme.css" />
   </head>
@@ -49,7 +71,7 @@ const { title = "LasperKaine — Developer Portfolio" } = Astro.props;
           webDeveloper: "Web Developer",
           helsinki: "Helsinki, Finland",
           bengStudent: "BEng Student",
-          softwareProduction: "Software Production, Metropolia",
+          softwareProduction: "Software Development, Metropolia",
           itWeb: "IT & Web",
           background: "Background",
           languages: "English / Finnish",
@@ -88,7 +110,7 @@ const { title = "LasperKaine — Developer Portfolio" } = Astro.props;
           professionalExperience: "Professional Experience",
           fullStackDeveloper: "Full Stack Software Developer",
           alfonDigital: "Alfons Digital Oy",
-          alfonDesc: "Worked on a variety of WordPress development tasks, building and customizing websites using WordPress, React, PHP, Tailwind CSS, and Git. Contributed to both frontend and backend features, and handled development workflows with NPM. Demonstrated strong independence and problem-solving skills, with the ability to quickly learn new technologies and adapt to project requirements. Received positive feedback for technical competence and work attitude, and was recommended for similar roles.",
+          alfonDesc: "Worked on a variety of WordPress development tasks, building and customizing websites using WordPress, React, PHP, Tailwind CSS, and Git. Contributed to both frontend and backend features, and handled development workflows with NPM. Demonstrated strong independence and problem-solving skills, with the ability to quickly learn new technologies and adapt to project requirements. Received positive feedback for technical competence and work attitude.",
           itSupportRole: "IT Support (Digitalkkari)",
           helsinkiCity: "Helsingin kaupunki",
           itSupportDesc: "Delivered user support, solved technical issues, and created documentation for a diverse group of end-users.",
@@ -144,7 +166,6 @@ const { title = "LasperKaine — Developer Portfolio" } = Astro.props;
           languagesLabel: "Kielet",
           heroDesc: "Helsinki-pohjainen web- ja ohjelmistokehittäjä, jolla on käytännön kokemusta IT-tuesta, digitaalisista ratkaisuista ja yhteistyöprojekteista. Opiskelen tällä hetkellä ohjelmistokehitystä Metropolia Ammattikorkeakoulussa, keskittyen käytännölliseen ohjelmistotuotantoon ja moderniin verkkoteknologiaan. Olen aina oppimassa ja etsimässä tapoja rakentaa parempia ratkaisuja.",
           
-          // About page
           aboutTitle: "Tietoja",
           whoIAm: "Kuka olen",
           whoIAmDesc: "Olen web- ja ohjelmistokehittäjä Helsingissä, jolla on käytännön työkokemus IT-tuesta, digitaalisista projekteista ja sisällönhallinnasta. Tällä hetkellä suoritan insinöörin tutkintoa ohjelmistokehityksessä Metropolia Ammattikorkeakoulussa.",
@@ -176,12 +197,11 @@ const { title = "LasperKaine — Developer Portfolio" } = Astro.props;
           professionalExperience: "Työkokemus",
           fullStackDeveloper: "Full Stack -ohjelmistokehittäjä",
           alfonDigital: "Alfons Digital Oy",
-          alfonDesc: "Työskentelin erilaisissa WordPress-kehitystehtävissä rakentaen ja mukauttaen verkkosivustoja käyttämällä WordPressiä, Reactia, PHP:ta, Tailwind CSS:ää ja Gitia. Osallistuin sekä frontend- että backend-ominaisuuksiin ja hallitsin kehitystyöfloweja NPM:llä. Osoitin vahvaa itsenäisyyttä ja ongelmanratkaisukykyä, sekä kykyä oppia nopeasti uusia teknologioita ja sopeutua projektien vaatimuksiin. Sain positiivista palautetta teknisestä pätevyydestä ja työasenteesta, ja minut suositeltiin vastaaviin rooleihin.",
+          alfonDesc: "Työskentelin erilaisissa WordPress-kehitystehtävissä rakentaen ja mukauttaen verkkosivustoja käyttämällä WordPressiä, Reactia, PHP:ta, Tailwind CSS:ää ja Gitia. Osallistuin sekä frontend- että backend-ominaisuuksiin ja hallitsin kehitystyöfloweja NPM:llä. Osoitin vahvaa itsenäisyyttä ja ongelmanratkaisukykyä.",
           itSupportRole: "IT-tuki (Digitalkkari)",
           helsinkiCity: "Helsingin kaupunki",
           itSupportDesc: "Tarjosin käyttäjätukea, ratkaisin teknisiä ongelmia ja loin dokumentaatiota monille loppukäyttäjille.",
           
-          // Projects page
           projectsTitle: "Projektit",
           projectsSubtitle: "Ammatillinen työ harjoittelustani Alfons Digitalissa sekä henkilökohtaiset ja ryhmäprojektit GitHubissa.",
           professionalWork: "Ammatillinen työ",
@@ -195,7 +215,6 @@ const { title = "LasperKaine — Developer Portfolio" } = Astro.props;
           contactToDiscuss: "Ota yhteyttä keskusteluun",
           allProjectsAccessibility: "Kaikki projektit sisälsivät automatisoitua saavutettavuuden testaamista WCAG-vaatimustenmukaisuuden varmistamiseksi.",
           
-          // Contact page
           contactTitle: "Ota yhteyttä",
           contactSubtitle: "Haluatko keskustella työstä, yhteistyöstä tai onko sinulla kysymys? Vastaan nopeasti.",
           sendEmail: "Lähetä sähköposti",
@@ -204,7 +223,6 @@ const { title = "LasperKaine — Developer Portfolio" } = Astro.props;
           typicallyReplies: "Vastaan yleensä 1–2 päivän sisällä",
           openTo: "Olen kiinnostunut ohjelmisto-kehittäjän tehtävistä, freelance-projekteista ja yhteistyömahdollisuuksista.",
           
-          // Footer
           fullStackDeveloperFooter: "Full‑Stack-kehittäjä",
           builtWith: "Rakennettu Astrolla",
         },
@@ -232,7 +250,6 @@ const { title = "LasperKaine — Developer Portfolio" } = Astro.props;
           languagesLabel: "Språk",
           heroDesc: "Helsingforsbaserad webbutvecklare och programvaruutvecklare med praktisk erfarenhet av IT-support, digitala lösningar och samarbetsprojekt. Studerar för närvarande programvaruutveckling vid Metropolia Yrkeshögskola, med fokus på praktisk programvaruproduktion och modern webbteknik. Jag lär mig alltid och letar efter sätt att bygga bättre lösningar.",
           
-          // About page
           aboutTitle: "Om",
           whoIAm: "Vem jag är",
           whoIAmDesc: "Jag är en webbutvecklare och programvaruutvecklare i Helsingfors med praktisk arbetslivserfarenhet inom IT-support, digitala projekt och innehållshantering. För närvarande slutför jag min Ingenjörsexamen i programvaruutveckling vid Metropolia Yrkeshögskola.",
@@ -264,12 +281,11 @@ const { title = "LasperKaine — Developer Portfolio" } = Astro.props;
           professionalExperience: "Yrkeslivserfarenhet",
           fullStackDeveloper: "Full Stack-utvecklare",
           alfonDigital: "Alfons Digital Oy",
-          alfonDesc: "Arbetade med en mängd WordPress-utvecklingsuppgifter, byggde och anpassade webbplatser med WordPress, React, PHP, Tailwind CSS och Git. Bidrog till både frontend- och backend-funktioner och hanterade utvecklingsarbetsflöden med NPM. Visade stark oberoende och problemlösningsförmåga, med förmåga att snabbt lära sig nya teknologier och anpassa sig till projektkrav. Fick positiv feedback för teknisk kompetens och arbetshållning, och rekommenderades för liknande roller.",
+          alfonDesc: "Arbetade med en mängd WordPress-utvecklingsuppgifter, byggde och anpassade webbplatser med WordPress, React, PHP, Tailwind CSS och Git. Bidrog till både frontend- och backend-funktioner och hanterade utvecklingsarbetsflöden med NPM. Visade stark oberoende och problemlösningsförmåga.",
           itSupportRole: "IT-support (Digitalkkari)",
           helsinkiCity: "Helsingin kaupunki",
           itSupportDesc: "Tillhandahöll användarstöd, löste tekniska problem och skapade dokumentation för en mångfaldig grupp slutanvändare.",
           
-          // Projects page
           projectsTitle: "Projekt",
           projectsSubtitle: "Professionellt arbete från min praktik på Alfons Digital, plus personliga och grupprojekt på GitHub.",
           professionalWork: "Professionellt arbete",
@@ -283,7 +299,6 @@ const { title = "LasperKaine — Developer Portfolio" } = Astro.props;
           contactToDiscuss: "Kontakta för diskussion",
           allProjectsAccessibility: "Alla projekt inkluderade automatiserad tillgänglighetstestning för att säkerställa WCAG-överensstämmelse.",
           
-          // Contact page
           contactTitle: "Kontakt",
           contactSubtitle: "Vill du diskutera arbete, samarbete eller har du en fråga? Jag svarar snabbt.",
           sendEmail: "Skicka e-post",
@@ -292,7 +307,6 @@ const { title = "LasperKaine — Developer Portfolio" } = Astro.props;
           typicallyReplies: "Svarar vanligtvis inom 1–2 dagar",
           openTo: "Öppen för junioutvecklarepositioner, frilansuppdrag och samarbetsmöjligheter.",
           
-          // Footer
           fullStackDeveloperFooter: "Full‑Stack-utvecklare",
           builtWith: "Byggt med Astro",
         },

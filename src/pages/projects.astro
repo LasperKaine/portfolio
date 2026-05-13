@@ -8,7 +8,10 @@ const { workProjects, personalProjects, groupProjects, additionalClients } =
   data;
 ---
 
-<BaseLayout title="Projects">
+<BaseLayout 
+  title="Projects — Kasper Laine | WordPress, React, Web Development"
+  description="Portfolio of professional and personal projects. WordPress development, React applications, and full-stack web development projects with live demos and source code."
+>
   <section class="projects-wrapper">
     <header class="projects-header">
       <h1 class="glitch" data-i18n="projectsTitle">PROJECTS</h1>
@@ -48,7 +51,13 @@ const { workProjects, personalProjects, groupProjects, additionalClients } =
             <article class="large-card">
               {p.image && (
                 <div class="project-image">
-                  <img src={p.image} alt={p.name} loading="lazy" />
+                  <img 
+                    src={p.image} 
+                    alt={`${p.name} project screenshot`} 
+                    loading="lazy"
+                    width="600"
+                    height="400"
+                  />
                 </div>
               )}
 
@@ -68,9 +77,7 @@ const { workProjects, personalProjects, groupProjects, additionalClients } =
 
                 {p.highlights?.length ? (
                   <ul class="bullets">
-                    {p.highlights.map((h: string) => (
-                      <li>{h}</li>
-                    ))}
+                    {p.highlights.map((h: string) => <li>{h}</li>)}
                   </ul>
                 ) : null}
 
@@ -123,9 +130,7 @@ const { workProjects, personalProjects, groupProjects, additionalClients } =
 
               {p.highlights?.length ? (
                 <ul class="bullets">
-                  {p.highlights.map((h: string) => (
-                    <li>{h}</li>
-                  ))}
+                  {p.highlights.map((h: string) => <li>{h}</li>)}
                 </ul>
               ) : null}
 
@@ -136,6 +141,7 @@ const { workProjects, personalProjects, groupProjects, additionalClients } =
                   target="_blank"
                   rel="noopener"
                   data-i18n="viewCode"
+                  aria-label={`View ${p.name} code on GitHub (opens in new window)`}
                 >
                   View Code
                 </a>
@@ -147,6 +153,7 @@ const { workProjects, personalProjects, groupProjects, additionalClients } =
                     target="_blank"
                     rel="noopener"
                     data-i18n="liveDemo"
+                    aria-label={`View ${p.name} live demo (opens in new window)`}
                   >
                     Live Demo
                   </a>
@@ -176,9 +183,7 @@ const { workProjects, personalProjects, groupProjects, additionalClients } =
 
               {p.highlights?.length ? (
                 <ul class="bullets">
-                  {p.highlights.map((h: string) => (
-                    <li>{h}</li>
-                  ))}
+                  {p.highlights.map((h: string) => <li>{h}</li>)}
                 </ul>
               ) : null}
 
@@ -189,6 +194,7 @@ const { workProjects, personalProjects, groupProjects, additionalClients } =
                   target="_blank"
                   rel="noopener"
                   data-i18n="viewCode"
+                  aria-label={`View ${p.name} code on GitHub (opens in new window)`}
                 >
                   View Code
                 </a>
@@ -200,6 +206,7 @@ const { workProjects, personalProjects, groupProjects, additionalClients } =
                     target="_blank"
                     rel="noopener"
                     data-i18n="liveDemo"
+                    aria-label={`View ${p.name} live demo (opens in new window)`}
                   >
                     Live Demo
                   </a>
@@ -241,7 +248,7 @@ const { workProjects, personalProjects, groupProjects, additionalClients } =
               p.image
                 ? `
               <div class="project-image">
-                <img src="${p.image}" alt="${p.name}" loading="lazy" />
+                <img src="${p.image}" alt="${p.name} project screenshot" loading="lazy" width="600" height="400" />
               </div>
             `
                 : ""
@@ -304,8 +311,8 @@ const { workProjects, personalProjects, groupProjects, additionalClients } =
             }
 
             <div class="project-links">
-              <a class="button-purple" href="${p.url}" target="_blank" rel="noopener" data-i18n="viewCode">View Code</a>
-              ${p.liveUrl ? `<a class="button-purple" href="${p.liveUrl}" target="_blank" rel="noopener" data-i18n="liveDemo">Live Demo</a>` : ""}
+              <a class="button-purple" href="${p.url}" target="_blank" rel="noopener" data-i18n="viewCode" aria-label="View ${p.name} code on GitHub (opens in new window)">View Code</a>
+              ${p.liveUrl ? `<a class="button-purple" href="${p.liveUrl}" target="_blank" rel="noopener" data-i18n="liveDemo" aria-label="View ${p.name} live demo (opens in new window)">Live Demo</a>` : ""}
             </div>
           </article>
         `,
@@ -338,8 +345,8 @@ const { workProjects, personalProjects, groupProjects, additionalClients } =
             }
 
             <div class="project-links">
-              <a class="button-purple" href="${p.url}" target="_blank" rel="noopener" data-i18n="viewCode">View Code</a>
-              ${p.liveUrl ? `<a class="button-purple" href="${p.liveUrl}" target="_blank" rel="noopener" data-i18n="liveDemo">Live Demo</a>` : ""}
+              <a class="button-purple" href="${p.url}" target="_blank" rel="noopener" data-i18n="viewCode" aria-label="View ${p.name} code on GitHub (opens in new window)">View Code</a>
+              ${p.liveUrl ? `<a class="button-purple" href="${p.liveUrl}" target="_blank" rel="noopener" data-i18n="liveDemo" aria-label="View ${p.name} live demo (opens in new window)">Live Demo</a>` : ""}
             </div>
           </article>
         `,
