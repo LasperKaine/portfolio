@@ -850,7 +850,7 @@ h2, h3 {
 .small-card .button-purple {
   width: 100%;
   text-align: center;
-  margin: 0;
+  margin: 0.5rem;
 }
 
 /* LARGE CARDS (Professional) */
