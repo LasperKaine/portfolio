@@ -1,47 +1,119 @@
 ---
-import BaseLayout from './layouts/BaseLayout.astro'
-import { projectsData } from '../lib/projects'
+import BaseLayout from "./layouts/BaseLayout.astro";
+import { projectsData } from "../lib/projects";
 
 // Default to English on page load
 const data = projectsData.en;
-const { workProjects, personalProjects, groupProjects, additionalClients } = data;
+const { workProjects, personalProjects, groupProjects, additionalClients } =
+  data;
 ---
 
 <BaseLayout title="Projects">
   <section class="projects-wrapper">
     <header class="projects-header">
       <h1 class="glitch" data-i18n="projectsTitle">PROJECTS</h1>
-      <p class="subtitle" data-i18n="projectsSubtitle">Professional work from my internship at Alfons Digital, plus personal and group projects on GitHub.</p>
+      <p class="subtitle" data-i18n="projectsSubtitle">
+        Professional work from my internship at Alfons Digital, plus personal
+        and group projects on GitHub.
+      </p>
     </header>
 
     <!-- NAVIGATION MENU -->
     <nav class="projects-nav">
-      <a href="#professional" class="nav-link active" data-i18n="professionalWork">Professional Work</a>
-      <a href="#personal" class="nav-link" data-i18n="personalProjects">Personal</a>
+      <a
+        href="#professional"
+        class="nav-link active"
+        data-i18n="professionalWork">Professional Work</a
+      >
+      <a href="#personal" class="nav-link" data-i18n="personalProjects"
+        >Personal</a
+      >
       <a href="#group" class="nav-link" data-i18n="groupProjects">Group</a>
     </nav>
 
     <!-- PROFESSIONAL WORK (FEATURED) -->
     <section class="projects-section featured-section" id="professional">
-      <h2 class="section-title" data-i18n="professionalWork">PROFESSIONAL WORK</h2>
-      <p class="section-subtitle" data-i18n="professionalWorkDesc">Projects from my fullstack developer internship at Alfons Digital (January – May 2024). Built WordPress sites with React components, custom post types, and modern frontend technologies.</p>
+      <h2 class="section-title" data-i18n="professionalWork">
+        PROFESSIONAL WORK
+      </h2>
+      <p class="section-subtitle" data-i18n="professionalWorkDesc">
+        Projects from my fullstack developer internship at Alfons Digital
+        (January – May 2024). Built WordPress sites with React components,
+        custom post types, and modern frontend technologies.
+      </p>
 
       <div class="project-grid large-cards" id="workProjectsContainer">
-        {workProjects.map((p: any) => (
-          <article class="large-card">
-            {p.image && (
-              <div class="project-image">
-                <img src={p.image} alt={p.name} loading="lazy" />
+        {
+          workProjects.map((p: any) => (
+            <article class="large-card">
+              {p.image && (
+                <div class="project-image">
+                  <img src={p.image} alt={p.name} loading="lazy" />
+                </div>
+              )}
+
+              <div class="project-content">
+                <h3 class="card-title">{p.name}</h3>
+                <p class="card-desc">{p.desc}</p>
+
+                <p class="meta">
+                  <span class="meta-label">Context:</span> {p.company}
+                </p>
+
+                <div class="tech-tags">
+                  {p.tech.map((t: string) => (
+                    <span class="tech-tag">{t}</span>
+                  ))}
+                </div>
+
+                {p.highlights?.length ? (
+                  <ul class="bullets">
+                    {p.highlights.map((h: string) => (
+                      <li>{h}</li>
+                    ))}
+                  </ul>
+                ) : null}
+
+                <a
+                  class="button-ghost-projects"
+                  href="/contact"
+                  data-i18n="contactToDiscuss"
+                >
+                  Contact to discuss
+                </a>
               </div>
-            )}
-            
-            <div class="project-content">
+            </article>
+          ))
+        }
+      </div>
+
+      <!-- ADDITIONAL CLIENTS -->
+      <div class="additional-clients">
+        <h3 data-i18n="additionalClients">Additional Client Work</h3>
+        <p data-i18n="continuedDevelopment">
+          Continued development and maintenance on 12+ client projects:
+        </p>
+        <ul class="client-list" id="clientsList">
+          {additionalClients.map((client: string) => <li>{client}</li>)}
+        </ul>
+        <p class="note" data-i18n="allProjectsAccessibility">
+          All projects included automated accessibility testing to ensure WCAG
+          compliance.
+        </p>
+      </div>
+    </section>
+
+    <!-- PERSONAL PROJECTS -->
+    <section class="projects-section" id="personal">
+      <h2 class="section-title" data-i18n="personalProjects">
+        PERSONAL PROJECTS
+      </h2>
+      <div class="project-grid small-cards" id="personalProjectsContainer">
+        {
+          personalProjects.map((p: any) => (
+            <article class="small-card">
               <h3 class="card-title">{p.name}</h3>
               <p class="card-desc">{p.desc}</p>
-
-              <p class="meta">
-                <span class="meta-label">Context:</span> {p.company}
-              </p>
 
               <div class="tech-tags">
                 {p.tech.map((t: string) => (
@@ -51,53 +123,38 @@ const { workProjects, personalProjects, groupProjects, additionalClients } = dat
 
               {p.highlights?.length ? (
                 <ul class="bullets">
-                  {p.highlights.map((h: string) => <li>{h}</li>)}
+                  {p.highlights.map((h: string) => (
+                    <li>{h}</li>
+                  ))}
                 </ul>
               ) : null}
 
-              <a class="button-ghost-projects" href="/contact" data-i18n="contactToDiscuss">Contact to discuss</a>
-            </div>
-          </article>
-        ))}
-      </div>
+              <div class="project-links">
+                <a
+                  class="button-purple"
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener"
+                  data-i18n="viewCode"
+                >
+                  View Code
+                </a>
 
-      <!-- ADDITIONAL CLIENTS -->
-      <div class="additional-clients">
-        <h3 data-i18n="additionalClients">Additional Client Work</h3>
-        <p data-i18n="continuedDevelopment">Continued development and maintenance on 12+ client projects:</p>
-        <ul class="client-list" id="clientsList">
-          {additionalClients.map((client: string) => (
-            <li>{client}</li>
-          ))}
-        </ul>
-        <p class="note" data-i18n="allProjectsAccessibility">All projects included automated accessibility testing to ensure WCAG compliance.</p>
-      </div>
-    </section>
-
-    <!-- PERSONAL PROJECTS -->
-    <section class="projects-section" id="personal">
-      <h2 class="section-title" data-i18n="personalProjects">PERSONAL PROJECTS</h2>
-      <div class="project-grid small-cards" id="personalProjectsContainer">
-        {personalProjects.map((p: any) => (
-          <article class="small-card">
-            <h3 class="card-title">{p.name}</h3>
-            <p class="card-desc">{p.desc}</p>
-
-            <div class="tech-tags">
-              {p.tech.map((t: string) => (
-                <span class="tech-tag">{t}</span>
-              ))}
-            </div>
-
-            {p.highlights?.length ? (
-              <ul class="bullets">
-                {p.highlights.map((h: string) => <li>{h}</li>)}
-              </ul>
-            ) : null}
-
-            <a class="button-purple" href={p.url} target="_blank" rel="noopener" data-i18n="viewCode">View Code</a>
-          </article>
-        ))}
+                {p.liveUrl && (
+                  <a
+                    class="button-purple"
+                    href={p.liveUrl}
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="liveDemo"
+                  >
+                    Live Demo
+                  </a>
+                )}
+              </div>
+            </article>
+          ))
+        }
       </div>
     </section>
 
@@ -105,45 +162,90 @@ const { workProjects, personalProjects, groupProjects, additionalClients } = dat
     <section class="projects-section" id="group">
       <h2 class="section-title" data-i18n="groupProjects">GROUP PROJECTS</h2>
       <div class="project-grid small-cards" id="groupProjectsContainer">
-        {groupProjects.map((p: any) => (
-          <article class="small-card">
-            <h3 class="card-title">{p.name}</h3>
-            <p class="card-desc">{p.desc}</p>
+        {
+          groupProjects.map((p: any) => (
+            <article class="small-card">
+              <h3 class="card-title">{p.name}</h3>
+              <p class="card-desc">{p.desc}</p>
 
-            <div class="tech-tags">
-              {p.tech.map((t: string) => (
-                <span class="tech-tag">{t}</span>
-              ))}
-            </div>
+              <div class="tech-tags">
+                {p.tech.map((t: string) => (
+                  <span class="tech-tag">{t}</span>
+                ))}
+              </div>
 
-            {p.highlights?.length ? (
-              <ul class="bullets">
-                {p.highlights.map((h: string) => <li>{h}</li>)}
-              </ul>
-            ) : null}
+              {p.highlights?.length ? (
+                <ul class="bullets">
+                  {p.highlights.map((h: string) => (
+                    <li>{h}</li>
+                  ))}
+                </ul>
+              ) : null}
 
-            <a class="button-purple" href={p.url} target="_blank" rel="noopener" data-i18n="viewCode">View Code</a>
-          </article>
-        ))}
+              <div class="project-links">
+                <a
+                  class="button-purple"
+                  href={p.url}
+                  target="_blank"
+                  rel="noopener"
+                  data-i18n="viewCode"
+                >
+                  View Code
+                </a>
+
+                {p.liveUrl && (
+                  <a
+                    class="button-purple"
+                    href={p.liveUrl}
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="liveDemo"
+                  >
+                    Live Demo
+                  </a>
+                )}
+              </div>
+            </article>
+          ))
+        }
       </div>
     </section>
   </section>
 
+  <style>
+    .project-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: auto;
+    }
+
+    .project-links a {
+      width: 100%;
+    }
+  </style>
+
   <script is:inline define:vars={{ projectsData }}>
     function updateProjects() {
-      const lang = localStorage.getItem('language') || 'en';
+      const lang = localStorage.getItem("language") || "en";
       const data = projectsData[lang] || projectsData.en;
 
       // Update work projects
-      const workContainer = document.getElementById('workProjectsContainer');
+      const workContainer = document.getElementById("workProjectsContainer");
       if (workContainer) {
-        workContainer.innerHTML = data.workProjects.map(p => `
+        workContainer.innerHTML = data.workProjects
+          .map(
+            (p) => `
           <article class="large-card">
-            ${p.image ? `
+            ${
+              p.image
+                ? `
               <div class="project-image">
                 <img src="${p.image}" alt="${p.name}" loading="lazy" />
               </div>
-            ` : ''}
+            `
+                : ""
+            }
             
             <div class="project-content">
               <h3 class="card-title">${p.name}</h3>
@@ -154,71 +256,103 @@ const { workProjects, personalProjects, groupProjects, additionalClients } = dat
               </p>
 
               <div class="tech-tags">
-                ${p.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+                ${p.tech.map((t) => `<span class="tech-tag">${t}</span>`).join("")}
               </div>
 
-              ${p.highlights?.length ? `
+              ${
+                p.highlights?.length
+                  ? `
                 <ul class="bullets">
-                  ${p.highlights.map(h => `<li>${h}</li>`).join('')}
+                  ${p.highlights.map((h) => `<li>${h}</li>`).join("")}
                 </ul>
-              ` : ''}
+              `
+                  : ""
+              }
 
               <a class="button-ghost-projects" href="/contact" data-i18n="contactToDiscuss">Contact to discuss</a>
             </div>
           </article>
-        `).join('');
+        `,
+          )
+          .join("");
       }
 
       // Update personal projects
-      const personalContainer = document.getElementById('personalProjectsContainer');
+      const personalContainer = document.getElementById(
+        "personalProjectsContainer",
+      );
       if (personalContainer) {
-        personalContainer.innerHTML = data.personalProjects.map(p => `
+        personalContainer.innerHTML = data.personalProjects
+          .map(
+            (p) => `
           <article class="small-card">
             <h3 class="card-title">${p.name}</h3>
             <p class="card-desc">${p.desc}</p>
 
             <div class="tech-tags">
-              ${p.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+              ${p.tech.map((t) => `<span class="tech-tag">${t}</span>`).join("")}
             </div>
 
-            ${p.highlights?.length ? `
+            ${
+              p.highlights?.length
+                ? `
               <ul class="bullets">
-                ${p.highlights.map(h => `<li>${h}</li>`).join('')}
+                ${p.highlights.map((h) => `<li>${h}</li>`).join("")}
               </ul>
-            ` : ''}
+            `
+                : ""
+            }
 
-            <a class="button-purple" href="${p.url}" target="_blank" rel="noopener" data-i18n="viewCode">View Code</a>
+            <div class="project-links">
+              <a class="button-purple" href="${p.url}" target="_blank" rel="noopener" data-i18n="viewCode">View Code</a>
+              ${p.liveUrl ? `<a class="button-purple" href="${p.liveUrl}" target="_blank" rel="noopener" data-i18n="liveDemo">Live Demo</a>` : ""}
+            </div>
           </article>
-        `).join('');
+        `,
+          )
+          .join("");
       }
 
       // Update group projects
-      const groupContainer = document.getElementById('groupProjectsContainer');
+      const groupContainer = document.getElementById("groupProjectsContainer");
       if (groupContainer) {
-        groupContainer.innerHTML = data.groupProjects.map(p => `
+        groupContainer.innerHTML = data.groupProjects
+          .map(
+            (p) => `
           <article class="small-card">
             <h3 class="card-title">${p.name}</h3>
             <p class="card-desc">${p.desc}</p>
 
             <div class="tech-tags">
-              ${p.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+              ${p.tech.map((t) => `<span class="tech-tag">${t}</span>`).join("")}
             </div>
 
-            ${p.highlights?.length ? `
+            ${
+              p.highlights?.length
+                ? `
               <ul class="bullets">
-                ${p.highlights.map(h => `<li>${h}</li>`).join('')}
+                ${p.highlights.map((h) => `<li>${h}</li>`).join("")}
               </ul>
-            ` : ''}
+            `
+                : ""
+            }
 
-            <a class="button-purple" href="${p.url}" target="_blank" rel="noopener" data-i18n="viewCode">View Code</a>
+            <div class="project-links">
+              <a class="button-purple" href="${p.url}" target="_blank" rel="noopener" data-i18n="viewCode">View Code</a>
+              ${p.liveUrl ? `<a class="button-purple" href="${p.liveUrl}" target="_blank" rel="noopener" data-i18n="liveDemo">Live Demo</a>` : ""}
+            </div>
           </article>
-        `).join('');
+        `,
+          )
+          .join("");
       }
 
       // Update clients list
-      const clientsList = document.getElementById('clientsList');
+      const clientsList = document.getElementById("clientsList");
       if (clientsList) {
-        clientsList.innerHTML = data.additionalClients.map(client => `<li>${client}</li>`).join('');
+        clientsList.innerHTML = data.additionalClients
+          .map((client) => `<li>${client}</li>`)
+          .join("");
       }
     }
 
@@ -226,6 +360,6 @@ const { workProjects, personalProjects, groupProjects, additionalClients } = dat
     updateProjects();
 
     // Update when language changes
-    window.addEventListener('languageChanged', updateProjects);
+    window.addEventListener("languageChanged", updateProjects);
   </script>
 </BaseLayout>

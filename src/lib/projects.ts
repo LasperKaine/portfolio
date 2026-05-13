@@ -83,6 +83,7 @@ export const projectsData = {
         name: "UniAteriat",
         desc: "A web application project showcasing modern JavaScript practices and interactive UI components.",
         url: "https://github.com/LasperKaine/web-sovellus",
+        liveUrl: "https://users.metropolia.fi/~kaspelai/web-app/",
         tech: ["JavaScript", "CSS", "HTML"],
         highlights: [
           "Interactive components",
@@ -96,6 +97,7 @@ export const projectsData = {
         name: "City Sushi",
         desc: "A restaurant website for City Sushi featuring menu, location, and ordering information.",
         url: "https://github.com/LasperKaine/citysushi-react",
+        liveUrl: "https://citysushi-frontend.vercel.app/",
         tech: ["HTML", "CSS", "JavaScript", "React", "Tailwind"],
         highlights: [
           "Interactive menu display",
@@ -227,6 +229,7 @@ export const projectsData = {
         name: "UniAteriat",
         desc: "Verkkosovellusprojekti, joka esittelee nykyaikaisia JavaScript-käytäntöjä ja interaktiivisia käyttöliittymäkomponentteja.",
         url: "https://github.com/LasperKaine/web-sovellus",
+        liveUrl: "https://users.metropolia.fi/~kaspelai/web-app/",
         tech: ["JavaScript", "CSS", "HTML"],
         highlights: [
           "Interaktiiviset komponentit",
@@ -240,6 +243,7 @@ export const projectsData = {
         name: "City Sushi",
         desc: "City Sushin ravintolaverkkosivusto, jossa on valikko, sijainti ja tilaustieto.",
         url: "https://github.com/LasperKaine/citysushi-react",
+        liveUrl: "https://citysushi-frontend.vercel.app/",
         tech: ["HTML", "CSS", "JavaScript", "React", "Tailwind"],
         highlights: [
           "Interaktiivinen valikon näyttö",
@@ -371,6 +375,7 @@ export const projectsData = {
         name: "UniAteriat",
         desc: "Ett webbapplikationsprojekt som visar moderna JavaScript-metoder och interaktiva gränssnittskomponenter.",
         url: "https://github.com/LasperKaine/web-sovellus",
+        liveUrl: "https://users.metropolia.fi/~kaspelai/web-app/",
         tech: ["JavaScript", "CSS", "HTML"],
         highlights: [
           "Interaktiva komponenter",
@@ -384,6 +389,7 @@ export const projectsData = {
         name: "City Sushi",
         desc: "En restaurangwebbplats för City Sushi med meny, plats och beställningsinformation.",
         url: "https://github.com/LasperKaine/citysushi-react",
+        liveUrl: "https://citysushi-frontend.vercel.app/",
         tech: ["HTML", "CSS", "JavaScript", "React", "Tailwind"],
         highlights: [
           "Interaktiv menybilning",
