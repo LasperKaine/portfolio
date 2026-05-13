@@ -2,25 +2,35 @@
 ---
 
 <div class="switcher-container">
-  <form class="language-switcher" id="langForm">
-    <label>
-      <input type="radio" name="language" value="en" />
-      EN
-    </label>
+  <form class="language-switcher" id="langForm" aria-label="Language switcher">
+    <fieldset>
+      <legend class="sr-only">Select language</legend>
+      <label>
+        <input type="radio" name="language" value="en" aria-label="English" />
+        EN
+      </label>
 
-    <label>
-      <input type="radio" name="language" value="fi" />
-      FI
-    </label>
+      <label>
+        <input type="radio" name="language" value="fi" aria-label="Finnish" />
+        FI
+      </label>
 
-    <label>
-      <input type="radio" name="language" value="sv" />
-      SV
-    </label>
+      <label>
+        <input type="radio" name="language" value="sv" aria-label="Swedish" />
+        SV
+      </label>
+    </fieldset>
+    <button type="submit" class="sr-only">Apply language</button>
   </form>
 
-  <button class="theme-btn" id="themeBtn" type="button">
-    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <button 
+    class="theme-btn" 
+    id="themeBtn" 
+    type="button"
+    aria-label="Toggle dark/light theme"
+    aria-pressed="false"
+  >
+    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
       <circle cx="12" cy="12" r="5"></circle>
       <line x1="12" y1="1" x2="12" y2="3"></line>
       <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -32,17 +42,13 @@
       <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
     </svg>
 
-    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
       <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
     </svg>
   </button>
 </div>
 
 <script is:inline>
-  // =========================
-  // Theme Toggle
-  // =========================
-
   const themeBtn = document.getElementById('themeBtn');
 
   const savedTheme = localStorage.getItem('theme') || 'dark';
@@ -57,6 +63,10 @@
 
     sun.style.display = theme === 'dark' ? 'none' : 'block';
     moon.style.display = theme === 'dark' ? 'block' : 'none';
+    
+    if (themeBtn) {
+      themeBtn.setAttribute('aria-pressed', theme === 'light' ? 'true' : 'false');
+    }
   }
 
   updateThemeDisplay(savedTheme);
@@ -73,10 +83,6 @@
 
     updateThemeDisplay(newTheme);
   });
-
-  // =========================
-  // Language Switcher
-  // =========================
 
   const langForm = document.getElementById('langForm');
 
@@ -108,10 +114,27 @@
         }, 100);
       }
     });
+
+    // Prevent actual form submission
+    langForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+    });
   }
 </script>
 
 <style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
   .switcher-container {
     display: flex;
     align-items: center;
@@ -126,6 +149,14 @@
     border-radius: 0.5rem;
     padding: 0.25rem;
     margin: 0;
+  }
+
+  .language-switcher fieldset {
+    display: flex;
+    gap: 0.5rem;
+    border: none;
+    margin: 0;
+    padding: 0;
   }
 
   .language-switcher label {
@@ -184,6 +215,10 @@
 
   @media (max-width: 768px) {
     .language-switcher {
+      gap: 0.25rem;
+    }
+
+    .language-switcher fieldset {
       gap: 0.25rem;
     }
 

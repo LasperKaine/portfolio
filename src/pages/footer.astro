@@ -9,13 +9,31 @@ const currentYear = new Date().getFullYear();
       <p class="footer-tagline" data-i18n="fullStackDeveloperFooter"></p>
     </div>
     <div class="footer-links">
-      <a href="https://github.com/LasperKaine" target="_blank" rel="noopener" data-i18n="github"></a>
-      <a href="https://www.linkedin.com/in/kasper-laine-a4a131231/" target="_blank" rel="noopener" data-i18n="linkedin"></a>
-      <a href="/resume.pdf" target="_blank" rel="noopener" data-i18n="resume"></a>
+      <a
+        href="https://github.com/LasperKaine"
+        target="_blank"
+        rel="noopener"
+        data-i18n="github"></a>
+      <a
+        href="https://www.linkedin.com/in/kasper-laine-a4a131231/"
+        target="_blank"
+        rel="noopener"
+        data-i18n="linkedin"></a>
+      <a href="/resume.pdf" target="_blank" rel="noopener" data-i18n="resume"
+      ></a>
       <a href="/contact" data-i18n="contact"></a>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; {currentYear} Kasper Laine. <span data-i18n="builtWith"></span></p>
+    <p>
+      &copy; {currentYear} Kasper Laine. <span data-i18n="builtWith"></span>
+    </p>
   </div>
 </footer>
+
+<style>
+  .footer-bottom p {
+    color: var(--text-primary);
+    opacity: 1;
+  }
+</style>

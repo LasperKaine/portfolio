@@ -2,7 +2,10 @@
 import BaseLayout from "./layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="About — Kasper Laine">
+<BaseLayout 
+  title="About Kasper Laine — Full-Stack Developer"
+  description="Learn about Kasper Laine, a full-stack developer from Helsinki with expertise in React, WordPress, PHP, and modern web technologies. View skills, education, and professional experience."
+>
   <section class="about-page">
     <div class="about-container">
       <h1 class="glitch" data-i18n="aboutTitle"></h1>
@@ -66,19 +69,22 @@ import BaseLayout from "./layouts/BaseLayout.astro";
             target="_blank"
             rel="noopener"
             class="button-purple"
-            data-i18n="github"></a>
+            data-i18n="github"
+            aria-label="Visit GitHub profile (opens in new window)"></a>
           <a
             href="https://linkedin.com/in/kasper-laine-4a131231"
             target="_blank"
             rel="noopener"
             class="button-purple"
-            data-i18n="linkedin"></a>
+            data-i18n="linkedin"
+            aria-label="Visit LinkedIn profile (opens in new window)"></a>
           <a
             href="/resume.pdf"
             target="_blank"
             rel="noopener"
             class="button-ghost"
-            data-i18n="resume"></a>
+            data-i18n="resume"
+            aria-label="Download resume (opens in new window)"></a>
         </div>
       </section>
     </div>

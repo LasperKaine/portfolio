@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /.git
+Crawl-delay: 1
+
+Sitemap: https://lasperkaine.github.io/sitemap.xml
