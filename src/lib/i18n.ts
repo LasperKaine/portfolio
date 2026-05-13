@@ -18,7 +18,7 @@ export const translations = {
     languages: 'English / Finnish',
     languagesLabel: 'Languages',
     letsWork: "Let's work together",
-    collaboration: 'I\'m looking for junior developer opportunities. Feel free to reach out for collaboration or questions!',
+    collaboration: 'I\'m looking for developer opportunities. Feel free to reach out for collaboration or questions!',
     contactMe: 'Contact Me',
   },
   fi: {
@@ -62,7 +62,7 @@ export const translations = {
     languages: 'Engelska / Finska',
     languagesLabel: 'Språk',
     letsWork: 'Låt oss arbeta tillsammans',
-    collaboration: 'Jag söker junioutvecklare möjligheter. Känna dig fri att kontakta mig för samarbete eller frågor!',
+    collaboration: 'Jag söker jobb som webbutvecklare. Hör gärna av dig om du är intresserad av ett samarbete eller har frågor!',
     contactMe: 'Kontakta mig',
   },
 } as const;
