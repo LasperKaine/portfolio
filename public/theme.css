@@ -41,6 +41,21 @@ body {
 
 .navbar a:hover,
 .navbar a.active {
+  color: var(--accent);
+}
+
+@media screen and (max-width: 768px) {
+  
+.navbar a:hover,
+.navbar a.active {
+  color: white !important;
+}
+
+
+}
+
+.navbar a:hover,
+.navbar a.active {
   color: var(--accent) !important;
 }
 

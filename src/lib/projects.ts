@@ -287,7 +287,7 @@ export const projectsData = {
       "h2clusters",
       "Lukuliike",
       "Nordic label",
-      "vasemmistoliiton sivusto",
+      "poliittisenpuolueen sivusto",
       "Alfons Education & Alfons Digital -verkkosivustot",
     ],
   },
