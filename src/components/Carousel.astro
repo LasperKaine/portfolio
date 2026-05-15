@@ -1,0 +1,289 @@
+---
+interface Props {
+  projects: any[];
+  containerId: string;
+}
+
+const { projects, containerId } = Astro.props;
+const showArrows = projects.length > 3;
+---
+
+<div class="carousel-wrapper">
+  {showArrows && (
+    <button
+      class="carousel-btn carousel-prev"
+      id={`prev-${containerId}`}
+      aria-label="Previous projects"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+  )}
+
+  <div class="carousel-container" id={`carousel-${containerId}`}>
+    <div class="carousel-track" id={containerId}>
+      {
+        projects.map((p: any) => (
+          <article class="carousel-item">
+            <h3 class="card-title">{p.name}</h3>
+            <p class="card-desc">{p.desc}</p>
+
+            <div class="tech-tags">
+              {p.tech.map((t: string) => (
+                <span class="tech-tag">{t}</span>
+              ))}
+            </div>
+
+            {p.highlights?.length ? (
+              <ul class="bullets">
+                {p.highlights.map((h: string) => <li>{h}</li>)}
+              </ul>
+            ) : null}
+
+            <div class="project-links">
+              <a
+                class="button-purple"
+                href={p.url}
+                target="_blank"
+                rel="noopener"
+                data-i18n="viewCode"
+                aria-label={`View ${p.name} code on GitHub (opens in new window)`}
+              >
+                View Code
+              </a>
+
+              {p.liveUrl && (
+                <a
+                  class="button-purple"
+                  href={p.liveUrl}
+                  target="_blank"
+                  rel="noopener"
+                  data-i18n="liveDemo"
+                  aria-label={`View ${p.name} live demo (opens in new window)`}
+                >
+                  Live Demo
+                </a>
+              )}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+
+  {showArrows && (
+    <button
+      class="carousel-btn carousel-next"
+      id={`next-${containerId}`}
+      aria-label="Next projects"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  )}
+</div>
+
+<style>
+  .carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .carousel-container {
+    overflow: hidden;
+    flex: 1;
+    max-width: 100%;
+  }
+
+  .carousel-track {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .carousel-item {
+    min-width: 300px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-item:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .carousel-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: var(--color-text, #fff);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  .carousel-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: scale(1.1);
+  }
+
+  .carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  .carousel-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tech-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 0.8rem;
+  }
+
+  .bullets {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+
+  .bullets li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+
+  .bullets li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+  }
+
+  .project-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: auto;
+  }
+
+  .project-links a {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 6px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .carousel-wrapper {
+      gap: 1rem;
+    }
+
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+    }
+
+    .carousel-item {
+      min-width: 280px;
+    }
+  }
+</style>
+
+<script define:vars={{ containerId, projectsLength: projects.length }}>
+  function initCarousel() {
+    const track = document.getElementById(containerId);
+    const prevBtn = document.getElementById(`prev-${containerId}`);
+    const nextBtn = document.getElementById(`next-${containerId}`);
+    const container = document.getElementById(`carousel-${containerId}`);
+
+    if (!track || !container || projectsLength <= 3) return;
+
+    let currentIndex = 0;
+    const items = track.querySelectorAll(".carousel-item");
+    const totalItems = items.length;
+    const itemsToShow = 3;
+    const itemWidth = items[0]?.offsetWidth || 300;
+    const gap = 32; // 2rem in pixels
+
+    function updateCarousel() {
+      const translateX = -(currentIndex * (itemWidth + gap));
+      track.style.transform = `translateX(${translateX}px)`;
+      track.style.transition = "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
+
+      if (prevBtn) prevBtn.disabled = currentIndex === 0;
+      if (nextBtn) nextBtn.disabled = currentIndex >= totalItems - itemsToShow;
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
+        }
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        if (currentIndex < totalItems - itemsToShow) {
+          currentIndex++;
+          updateCarousel();
+        }
+      });
+    }
+
+    updateCarousel();
+
+    window.addEventListener("resize", () => {
+      updateCarousel();
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", initCarousel);
+  initCarousel();
+</script>

@@ -1,0 +1,388 @@
+---
+interface Props {
+  projects: any[];
+  projectsPerView?: number;
+  containerId: string;
+}
+
+const { projects, projectsPerView = 3, containerId } = Astro.props;
+const hasArrows = projects.length > projectsPerView;
+---
+
+<div class="carousel-wrapper">
+  {hasArrows && (
+    <button 
+      class="carousel-button carousel-button-prev" 
+      aria-label="Previous projects"
+      data-carousel-id={containerId}
+      disabled
+    >
+      ←
+    </button>
+  )}
+
+  <div class="carousel-container" id={containerId} data-cards-per-view={projectsPerView}>
+    <div class="carousel-track">
+      {
+        projects.map((p: any) => (
+          <article class="small-card">
+            <h3 class="card-title">{p.name}</h3>
+            <p class="card-desc">{p.desc}</p>
+
+            <div class="tech-tags">
+              {p.tech.map((t: string) => (
+                <span class="tech-tag">{t}</span>
+              ))}
+            </div>
+
+            {p.highlights?.length ? (
+              <ul class="bullets">
+                {p.highlights.map((h: string) => <li>{h}</li>)}
+              </ul>
+            ) : null}
+
+            <div class="project-links">
+              <a
+                class="button-purple"
+                href={p.url}
+                target="_blank"
+                rel="noopener"
+                data-i18n="viewCode"
+                aria-label={`View ${p.name} code on GitHub (opens in new window)`}
+              >
+                View Code
+              </a>
+
+              {p.liveUrl && (
+                <a
+                  class="button-purple"
+                  href={p.liveUrl}
+                  target="_blank"
+                  rel="noopener"
+                  data-i18n="liveDemo"
+                  aria-label={`View ${p.name} live demo (opens in new window)`}
+                >
+                  Live Demo
+                </a>
+              )}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+
+  {hasArrows && (
+    <button 
+      class="carousel-button carousel-button-next" 
+      aria-label="Next projects"
+      data-carousel-id={containerId}
+    >
+      →
+    </button>
+  )}
+</div>
+
+<style>
+  .carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .carousel-container {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 24px;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+  }
+
+  /* Override carousel-specific card sizing while preserving main.css styles */
+  .carousel-wrapper .small-card {
+    flex: 0 0 auto;
+    width: 300px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 28px;
+    background: rgba(167, 139, 250, 0.08);
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    border-radius: 12px;
+    height: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-wrapper .small-card:hover {
+    background: rgba(167, 139, 250, 0.12);
+    border-color: rgba(167, 139, 250, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(167, 139, 250, 0.15);
+  }
+
+  .carousel-button {
+    background: transparent;
+    border: 2px solid #a78bfa;
+    color: #a78bfa;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .carousel-button:hover:not(:disabled) {
+    background: #a78bfa;
+    color: white;
+    transform: scale(1.1);
+  }
+
+  .carousel-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .carousel-wrapper .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+  }
+
+  .carousel-wrapper .card-desc {
+    color: #c9d1d9;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .carousel-wrapper .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .carousel-wrapper .tech-tag {
+    display: inline-block;
+    background: rgba(167, 139, 250, 0.15);
+    color: #a78bfa;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid rgba(167, 139, 250, 0.3);
+  }
+
+  .carousel-wrapper .bullets {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+  }
+
+  .carousel-wrapper .bullets li {
+    color: #c9d1d9;
+    font-size: 0.9rem;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .carousel-wrapper .bullets li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #a78bfa;
+  }
+
+  .carousel-wrapper .project-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: auto;
+  }
+
+  .carousel-wrapper .project-links a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .carousel-wrapper .button-purple {
+    background: #a78bfa;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+  }
+
+  .carousel-wrapper .button-purple:hover {
+    background: #9d72e0;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 1024px) {
+    .carousel-wrapper .small-card {
+      width: 280px;
+      min-width: 280px;
+      padding: 24px;
+    }
+
+    .carousel-wrapper .card-title {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .carousel-wrapper {
+      gap: 0.75rem;
+    }
+
+    .carousel-button {
+      width: 2rem;
+      height: 2rem;
+      font-size: 1rem;
+    }
+
+    .carousel-wrapper .small-card {
+      width: 260px;
+      min-width: 260px;
+      padding: 20px;
+      gap: 12px;
+    }
+
+    .carousel-wrapper .card-title {
+      font-size: 1rem;
+    }
+
+    .carousel-wrapper .card-desc {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .carousel-wrapper {
+      gap: 0.5rem;
+    }
+
+    .carousel-button {
+      width: 1.75rem;
+      height: 1.75rem;
+      font-size: 0.9rem;
+    }
+
+    .carousel-wrapper .small-card {
+      width: 240px;
+      min-width: 240px;
+      padding: 16px;
+    }
+  }
+</style>
+
+<script>
+  const GAP = 24; // px
+
+  function getCardsPerView(container: HTMLElement): number {
+    const attr = parseInt(container.dataset.cardsPerView || '3', 10);
+    const w = container.offsetWidth;
+    if (w < 480) return 1;
+    if (w < 768) return 2;
+    if (w < 1024) return Math.min(2, attr);
+    return attr;
+  }
+
+  function initCarousel(container: HTMLElement) {
+    const containerId = container.id;
+    const track = container.querySelector<HTMLElement>('.carousel-track');
+    const prevBtn = document.querySelector<HTMLButtonElement>(
+      `.carousel-button-prev[data-carousel-id="${containerId}"]`
+    );
+    const nextBtn = document.querySelector<HTMLButtonElement>(
+      `.carousel-button-next[data-carousel-id="${containerId}"]`
+    );
+
+    if (!track) return;
+
+    const cards = Array.from(track.querySelectorAll<HTMLElement>('.small-card'));
+    if (cards.length === 0) return;
+
+    let currentIndex = 0;
+
+    function update() {
+      const perView = getCardsPerView(container);
+      const cardWidth = cards[0].offsetWidth;
+      const step = cardWidth + GAP;
+      const maxIndex = Math.max(0, cards.length - perView);
+
+      if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+      track!.style.transform = `translateX(-${currentIndex * step}px)`;
+
+      if (prevBtn) prevBtn.disabled = currentIndex === 0;
+      if (nextBtn) nextBtn.disabled = currentIndex >= maxIndex;
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        const perView = getCardsPerView(container);
+        currentIndex = Math.max(0, currentIndex - perView);
+        update();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        const perView = getCardsPerView(container);
+        const maxIndex = Math.max(0, cards.length - perView);
+        currentIndex = Math.min(maxIndex, currentIndex + perView);
+        update();
+      });
+    }
+
+    const ro = new ResizeObserver(() => update());
+    ro.observe(container);
+
+    update();
+
+    (container as any)._carouselReset = () => { currentIndex = 0; update(); };
+    (container as any)._carouselUpdate = update;
+  }
+
+  function initializeAllCarousels() {
+    document.querySelectorAll<HTMLElement>('.carousel-container').forEach(container => {
+      if ((container as any)._carouselReset) {
+        (container as any)._carouselReset();
+      } else {
+        initCarousel(container);
+      }
+    });
+  }
+
+  initializeAllCarousels();
+
+  document.addEventListener('languageChanged', () => setTimeout(initializeAllCarousels, 100));
+  window.addEventListener('carouselUpdate', () => setTimeout(initializeAllCarousels, 50));
+</script>
