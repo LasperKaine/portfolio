@@ -21,7 +21,7 @@ jobs:
         run: npm run build
       
       - name: Run accessibility tests
-        run: npm run test:a11y
         env:
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'false'
-          PUPPETEER_EXECUTABLE_PATH: /usr/bin/chromium-browser
+          PA11Y_LAUNCH_CONFIG: '{"args":["--no-sandbox","--disable-setuid-sandbox"]}'
+        run: npm run test:a11y
+
