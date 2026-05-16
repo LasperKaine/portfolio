@@ -14,7 +14,9 @@
   "wait": 1000,
   "chromeLaunchConfig": {
     "args": [
-      "--no-sandbox"
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-gpu"
     ]
   },
   "threshold": 5,
