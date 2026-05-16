@@ -11,6 +11,24 @@ jobs:
         with:
           node-version: '22'
       
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libgconf-2-4 \
+            libatk1.0-0 \
+            libatk-bridge2.0-0 \
+            libgdk-pixbuf2.0-0 \
+            libgtk-3-0 \
+            libxss1 \
+            libnss3 \
+            libappindicator1 \
+            libindicator7 \
+            libgbm1 \
+            libxkbcommon0 \
+            libpango-1.0-0 \
+            libpangoft2-1.0-0
+      
       - name: Install dependencies
         run: npm install
       
@@ -22,6 +40,6 @@ jobs:
       
       - name: Run accessibility tests
         env:
-          PA11Y_LAUNCH_CONFIG: '{"args":["--no-sandbox","--disable-setuid-sandbox"]}'
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'false'
+          PUPPETEER_EXECUTABLE_PATH: '/usr/bin/chromium-browser'
         run: npm run test:a11y
-

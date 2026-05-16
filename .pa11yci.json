@@ -13,12 +13,16 @@
   "timeout": 10000,
   "wait": 1000,
   "chromeLaunchConfig": {
+    "headless": true,
     "args": [
       "--no-sandbox",
       "--disable-setuid-sandbox",
-      "--disable-gpu"
+      "--disable-gpu",
+      "--disable-dev-shm-usage",
+      "--disable-software-rasterizer",
+      "--disable-extensions"
     ]
   },
   "threshold": 5,
-  "concurrency": 2
+  "concurrency": 1
 }
