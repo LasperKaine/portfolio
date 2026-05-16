@@ -6,6 +6,12 @@
   "standard": "WCAG2AA",
   "timeout": 10000,
   "wait": 1000,
+  "chromeLaunchConfig": {
+    "args": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
+  },
   "threshold": 5,
   "concurrency": 1
 }
