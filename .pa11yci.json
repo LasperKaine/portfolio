@@ -1,9 +1,6 @@
 {
   "urls": [
-    "https://lasperkaine.github.io/portfolio/",
-    "https://lasperkaine.github.io/portfolio/about",
-    "https://lasperkaine.github.io/portfolio/projects",
-    "https://lasperkaine.github.io/portfolio/contact"
+    "https://lasperkaine.github.io/portfolio/"
   ],
   "runners": ["htmlcs", "axe"],
   "standard": "WCAG2AA",
