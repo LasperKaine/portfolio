@@ -1,24 +1,14 @@
 {
   "urls": [
-    "http://localhost:4321",
-    "http://localhost:4321/about",
-    "http://localhost:4321/projects",
-    "http://localhost:4321/contact"
+    "https://lasperkaine.github.io/portfolio/",
+    "https://lasperkaine.github.io/portfolio/about",
+    "https://lasperkaine.github.io/portfolio/projects",
+    "https://lasperkaine.github.io/portfolio/contact"
   ],
   "runners": ["htmlcs", "axe"],
   "standard": "WCAG2AA",
   "timeout": 10000,
   "wait": 1000,
-  "chromeLaunchConfig": {
-    "headless": "new",
-    "args": [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--disable-gpu",
-      "--disable-dev-shm-usage",
-      "--single-process"
-    ]
-  },
   "threshold": 5,
   "concurrency": 1
 }
