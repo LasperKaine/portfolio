@@ -5,7 +5,7 @@ export const projectsData = {
         name: "UI Campaign Patterns",
         company: "Alfons Digital (8.1.2024 - 22.5.2024)",
         desc: "Built reusable WordPress patterns for creating dynamic case showcase pages. Designed flexible components to streamline client project setups.",
-        image: "/images/projects/ui-campaign-patterns.jpg",
+        image: "images/projects/ui-campaign-patterns.jpg",
         tech: ["WordPress", "CSS"],
         highlights: [
           "Custom Gutenberg React block components",
@@ -18,7 +18,7 @@ export const projectsData = {
         name: "HSKK Marketing Site",
         company: "Alfons Digital",
         desc: "Marketing website for Helsingin seudun kauppakamari showcasing their various services with custom layouts and optimized UX.",
-        image: "/images/projects/hskk-marketing.jpg",
+        image: "images/projects/hskk-marketing.jpg",
         tech: ["WordPress", "PHP", "CSS"],
         highlights: [
           "Custom post types for services",
@@ -31,7 +31,7 @@ export const projectsData = {
         name: "Future School",
         company: "Alfons Digital",
         desc: "Story-based survey website for Lasten ja nuortensäätiö. Interactive React components guide users through narratives with form collection.",
-        image: "/images/projects/future-school.jpg",
+        image: "images/projects/future-school.jpg",
         tech: ["React", "WordPress"],
         highlights: [
           "Interactive story-based UI flow",
@@ -44,7 +44,7 @@ export const projectsData = {
         name: "Impact Library & Network",
         company: "Alfons Digital",
         desc: "Dual-component project featuring a workshop directory (Impact Library) and an interactive map (Impact Network) using custom post types.",
-        image: "/images/projects/impact-library-network.jpg",
+        image: "images/projects/impact-library-network.jpg",
         tech: ["React", "WordPress", "PHP", "JavaScript"],
         highlights: [
           "Custom post type taxonomy system",
@@ -152,7 +152,7 @@ export const projectsData = {
         name: "UI Campaign Patterns",
         company: "Alfons Digital (8.1.2024 - 22.5.2024)",
         desc: "Rakensin uudelleenkäytettäviä WordPress-malleja dynaamisille case-esittelysivuille. Suunnittelin joustavia komponentteja asiakasprojektien käynnistämisen virtaviivaistamiseksi.",
-        image: "/images/projects/ui-campaign-patterns.jpg",
+        image: "images/projects/ui-campaign-patterns.jpg",
         tech: ["WordPress", "CSS"],
         highlights: [
           "Mukautetut Gutenberg React -lohkokomponentit",
@@ -165,7 +165,7 @@ export const projectsData = {
         name: "HSKK Marketing Site",
         company: "Alfons Digital",
         desc: "Markkinointiverkkosivusto Helsingin seudun kauppakamarin palveluille mukautetulla asettelulla ja optimoidulla käyttäjäkokemuksella.",
-        image: "/images/projects/hskk-marketing.jpg",
+        image: "images/projects/hskk-marketing.jpg",
         tech: ["WordPress", "PHP", "CSS"],
         highlights: [
           "Mukautetut palveluiden postit",
@@ -178,7 +178,7 @@ export const projectsData = {
         name: "Future School",
         company: "Alfons Digital",
         desc: "Tarinaperustainen kysely verkkosivusto Lasten ja nuortensäätiölle. Interaktiiviset React-komponentit ohjaavat käyttäjiä tarinapohjaisen kokemuksen läpi ja keräävät lomakedataa.",
-        image: "/images/projects/future-school.jpg",
+        image: "images/projects/future-school.jpg",
         tech: ["React", "WordPress"],
         highlights: [
           "Interaktiivinen tarinapohjainen käyttöliittymätyönkulku",
@@ -191,7 +191,7 @@ export const projectsData = {
         name: "Impact Library & Network",
         company: "Alfons Digital",
         desc: "Kaksiosaisessa projektissa on työpajojen hakemisto (Impact Library) ja interaktiivinen kartta (Impact Network) mukautetuilla postityypeillä.",
-        image: "/images/projects/impact-library-network.jpg",
+        image: "images/projects/impact-library-network.jpg",
         tech: ["React", "WordPress", "PHP", "JavaScript"],
         highlights: [
           "Mukautettu postityyppien taksonomiajärjestelmä",
@@ -298,7 +298,7 @@ export const projectsData = {
         name: "UI Campaign Patterns",
         company: "Alfons Digital (8.1.2024 - 22.5.2024)",
         desc: "Byggde återanvändbara WordPress-mönster för att skapa dynamiska fallstudiesidor. Designade flexibla komponenter för att effektivisera klientprojektkonfigurationer.",
-        image: "/images/projects/ui-campaign-patterns.jpg",
+        image: "images/projects/ui-campaign-patterns.jpg",
         tech: ["WordPress", "CSS"],
         highlights: [
           "Anpassade Gutenberg React-blockkomponenter",
@@ -311,7 +311,7 @@ export const projectsData = {
         name: "HSKK Marketing Site",
         company: "Alfons Digital",
         desc: "Marknadsföringswebbplats för Helsingfors regionala handelskammare med anpassade layouter och optimerad användarupplevelse.",
-        image: "/images/projects/hskk-marketing.jpg",
+        image: "images/projects/hskk-marketing.jpg",
         tech: ["WordPress", "PHP", "CSS"],
         highlights: [
           "Anpassade inläggstyper för tjänster",
@@ -324,7 +324,7 @@ export const projectsData = {
         name: "Future School",
         company: "Alfons Digital",
         desc: "Historiebaskerad enkätwebbplats för Barn- och ungdomsstiftelsen. Interaktiva React-komponenter guidar användare genom narrativ med formulärsamling.",
-        image: "/images/projects/future-school.jpg",
+        image: "images/projects/future-school.jpg",
         tech: ["React", "WordPress"],
         highlights: [
           "Interaktiv historiebaserad gränssnittsflöde",
@@ -337,7 +337,7 @@ export const projectsData = {
         name: "Impact Library & Network",
         company: "Alfons Digital",
         desc: "Tvådelat projekt med en workshopp-katalog (Impact Library) och en interaktiv karta (Impact Network) med anpassade inläggstyper.",
-        image: "/images/projects/impact-library-network.jpg",
+        image: "images/projects/impact-library-network.jpg",
         tech: ["React", "WordPress", "PHP", "JavaScript"],
         highlights: [
           "Anpassat inläggstyp-taxonomisystem",
