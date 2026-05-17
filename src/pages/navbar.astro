@@ -3,6 +3,7 @@ import LanguageThemeSwitcher from '../components/LanguageThemeSwitcher.astro';
 import MobileMenu from '../components/MobileMenu.astro';
 
 const currentPath = Astro.url.pathname;
+const base = import.meta.env.BASE_URL;
 
 const isActive = (path: string) =>
   currentPath === path || currentPath.startsWith(path + '/');
@@ -11,45 +12,21 @@ const isActive = (path: string) =>
 <nav class="navbar">
   <div class="nav-container">
 
-    <a href="/" class="nav-logo">
+    <a href={base} class="nav-logo">
       <span class="logo-text">KL</span>
     </a>
 
     <ul class="nav-links">
-      <li><a href="/" class={isActive('/') ? 'active' : ''} data-i18n="home">Home</a></li>
-      <li><a href="/projects" class={isActive('/projects') ? 'active' : ''} data-i18n="projects">Projects</a></li>
-      <li><a href="/about" class={isActive('/about') ? 'active' : ''} data-i18n="about">About</a></li>
-      <li><a href="/contact" class={isActive('/contact') ? 'active' : ''} data-i18n="contact">Contact</a></li>
+      <li><a href={base} class={isActive('/portfolio/') || isActive('/') ? 'active' : ''} data-i18n="home">Home</a></li>
+      <li><a href={`${base}projects`} class={isActive('/projects') || isActive('/portfolio/projects') ? 'active' : ''} data-i18n="projects">Projects</a></li>
+      <li><a href={`${base}about`} class={isActive('/about') || isActive('/portfolio/about') ? 'active' : ''} data-i18n="about">About</a></li>
+      <li><a href={`${base}contact`} class={isActive('/contact') || isActive('/portfolio/contact') ? 'active' : ''} data-i18n="contact">Contact</a></li>
     </ul>
 
     <div class="nav-socials">
-      <a
-        href="https://github.com/LasperKaine"
-        target="_blank"
-        rel="noopener"
-        data-i18n="github"
-      >
-        GitHub
-      </a>
-
-      <a
-        href="https://www.linkedin.com/in/kasper-laine-a4a131231/"
-        target="_blank"
-        rel="noopener"
-        data-i18n="linkedin"
-      >
-        LinkedIn
-      </a>
-
-      <a
-        href="/resume.pdf"
-        target="_blank"
-        rel="noopener"
-        class="resume-link"
-        data-i18n="resume"
-      >
-        Resume
-      </a>
+      <a href="https://github.com/LasperKaine" target="_blank" rel="noopener" data-i18n="github">GitHub</a>
+      <a href="https://www.linkedin.com/in/kasper-laine-a4a131231/" target="_blank" rel="noopener" data-i18n="linkedin">LinkedIn</a>
+      <a href={`${base}resume.pdf`} target="_blank" rel="noopener" class="resume-link" data-i18n="resume">Resume</a>
     </div>
 
     <div class="nav-controls">
